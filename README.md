@@ -8,27 +8,21 @@ Hello and welcome to the Containers On AWS Workshop! Please, read the instructio
 
 We will walk you through the very basics of containers: from installing and configuring Docker, running containers locally, deploying them on AWS container services like Elastic Container Services (ECS), till implementing a Continuous Delivery pipeline for your container and help you configure Auto Scaling for your containerized app.
 
-## 2. If you are using a Windows machine
+## 2. Let's use Cloud9 as our integrated development environment!
 
-We strongly recommend you spinning up a Cloud9 environment. Optionally, you can spin up an EC2 instance with Amazon Linux.
+We strongly recommend you spinning up a Cloud9 environment.
 
-If you choose Cloud9, all you have to do is jump to [01-EnvironmentSetup](https://github.com/bemer/containers-on-aws-workshop/tree/master/01-EnvironmentSetup).
-
-If you want to run on a EC2 instance, the following links will guide you through the instance creation process and how to access it:
-
-* [Creating a Linux EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
-* [Accessing a Linux EC2 instance from a Windows machine](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
+For that purpose we will launch an AWS CloudFormation template on our next section [01-EnvironmentSetup](https://github.com/bemer/containers-on-aws-workshop/tree/master/01-EnvironmentSetup).
 
 ## 3. We strongly recommend you running this workshop in the following order:
 
 * [1. Environment Setup](/01-EnvironmentSetup)
 * [2. Creating Your Docker Image](/02-CreatingDockerImage)
-* [3. Deploying An ECS Cluster](/03-DeployEcsCluster)
-* [4. Deploying An Application with AWS Fargate](/04-DeployFargate)
-* [5. Creating a Continuous Delivery Pipeline with Code services and Amazon ECS](/05-ContinuousDelivery)
-* [6. Configuring Service Auto Scaling on Amazon ECS](/06-AutoScaling)
+* [2. Deploying An ECS Cluster](/03-DeployEcsCluster)
+* [3. Deploying An Application with AWS Fargate](/04-DeployFargate)
+* [4. Creating a Continuous Delivery Pipeline with Code services and Amazon ECS](/05-ContinuousDelivery)
 
-## 4. Enough of jibber jabber...
+## 4. Enough jibber jabber...
 
 You can start the Containers on AWS workshop by clicking in the following link:
 
