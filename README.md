@@ -18,9 +18,8 @@ For that purpose we will launch an AWS CloudFormation template on our next secti
 
 * [1. Environment Setup](/01-EnvironmentSetup)
 * [2. Creating Your Docker Image](/02-CreatingDockerImage)
-* [3. Deploying An ECS Cluster](/03-DeployEcsCluster)
-* [3. Deploying An Application with AWS Fargate](/04-DeployFargate)
-* [4. Creating a Continuous Delivery Pipeline with Code services and Amazon ECS](/05-ContinuousDelivery)
+* [3. Deploying An Application with AWS Fargate](/03-DeployFargate)
+* [4. Creating a Continuous Delivery Pipeline with Code services and Amazon ECS](/04-ContinuousDelivery)
 
 ## 4. Enough jibber jabber...
 

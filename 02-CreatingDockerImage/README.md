@@ -189,4 +189,4 @@ Whose output will look like this:
 [![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
 [back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
-[continue-workshop]: /03-DeployEcsCluster
+[continue-workshop]: /03-DeployFargate
