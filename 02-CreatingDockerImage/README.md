@@ -42,7 +42,7 @@ If you have completed these steps, you are good to go!
 
 ## 2. Creating your first image
 
-The following steps should be executed on your Cloud9 environment.
+The following steps should be executed in your Cloud9 environment.
 
 If you haven't executed the `git clone` command present in the [Setup Environment](/01-EnvironmentSetup#5-cloning-the-workshop-repository) chapter, do it now using the following command:
 
@@ -118,7 +118,7 @@ Once you've created the repository, you will be redirected to the ECR main scree
 
 ![ecr main screen](/02-CreatingDockerImage/images/ecr_main_screen.png)
 
-Now, access your repository by clicking on its name. Now, click on the button **View push commands** at the top right corner. It will display a list of commands that you will need to use to push your Docker images. These commands will be like this:
+Now, access your repository by clicking on its name. Then click on the button **View push commands** at the top right corner. It will display a list of commands that you will need to use to push your Docker images. These commands will be like this:
 
 ![push commands](/02-CreatingDockerImage/images/push_commands.png)
 
@@ -132,6 +132,8 @@ The first thing that we need to do, is authenticate our Docker client to the ECR
 
     $ aws ecr get-login --no-include-email
 
+>NOTE: If you are running it on a linux terminal, you can just run the command like this `$(aws ecr get-login --no-include-email --region us-east-1)` which will tell your shell to execute the output of the previous command for you.
+
 The output of this command is the `docker login` command that we wil need to run. It is going to be similar to:
 
     docker login -u AWS -p eyJwYXlsb2FkIjoiQXowb3lmSVNpa2dCeUF0UCt3UjRyN3JqZ2w0ZVFqbjMwQXBFY2szVkRQRUx6KzRMb3REUHhLTlowYk9ncWZYelhwclhXdW1vWm5GVzJPVi9LSDhaRlVsTUtxaGVPMWU2RzV6Njg2QlAraXVDSklPMXdZVTNpNTBLVkR2dnUyaVZ2SkRZUEdmM3BLR0IvSG9WQWFFZmJJVFRJNkZPODVOQWRvcEpHYnJhYmNGQXYvckVGQ0FLa1pkQ1k1NkNNTmcwNFlOek1lanpKLzQyUjZwMlV2ZjgxUVBaTm1ubWZYZE11VHA0MHQ2OGRJdDBuQi9acXZZVkN6MXVzSlJBVFUwK1A4UlNSOXlyL0N3T3lvQWlkUlFDdDlUc3Z1SHVwZGhOeHNkTHVNc1RRcDZvYS9obzFWVXhiN0RJYmhrcWEwdlVIREhtS2t0OTFpUnFGcFV5aVBhYk80eTVGaXlzOU15NkN5QlIzZlI4U2lOUDlmaW9tb2hvMklYYkdZeHpsYXNKK0FvTGFkU2xhYUFxRkRzeGpPaEJRL1ZlTWlNL2Z3bHhDYytuMUdrK29LT1lsZm5LTS9RdUdNcVdXTkJpN1VxUncyN3p4VjJCR3NPT05NaXVMemlQUlhyWXhucVpxTDh6b2JpN25KQy96UXFsRERqdExPTW9UMGdiSmo1bWloTXVqdm4vWWZYRDVqQnAxWTRSNW5YcCtwQ2Q4Z0NSQKSJFXlKT0hUZUJuM21VZFR0N2EzdmhxNWoyL0RtdFJxYVpPNUpSMm9GWjY5UmJYUUFUSStLMDBVZ1lMMFpZVHcycXorbGVZYlh0YzlxK2FTM3krSm53L2FNZVNiUGtoOWJuU01CZDQvSFcvemcxUElsRlhvOEZpTG1ZakppNEpRcHJIa2czemk0ektOOS9NL3pOaXVXSXp1a3Ezb05QZjMrUndZSmptdy9mbFd3OEJGLzJoejJJVXVhbENkWkYzdldRaUhRNEt3YjBYNVFidXdvZTVZOWwyNEJZcVBMdEh4V0xrUUFuS2NVUkEvVTNVSlpLaEVVZXlMV28vSFBYWmxUSK820WUVMU25hNTVUWTJqa0VCcXBhaTEyQTJyTGwwM0tjUjY1VzNyZU05RUVUMmswTmJhZVNWZmNkQ28rUE95dUxCSHJTS2RIVHozbzNuVzE2SlhtaTdOWlRSMlBjMkFCOEExQTNXN01zaGJGcjRqbUs1a1UySWI2cnRjeWcrU2g2Zm0xYWhpQlRueXJrbzlpZGhGanVWbU1GOHppL29jZ3JBTG80TjExOGlvejZwNkxSWmhdVMmdmUWI5UnFGRkXKSjJRVXdFcHBqWXhtSzRLQ0RwTWF4NVhGM1czT1c1MjM1ejV3emR1ZGxwclg5TWdGbmY2Q3ljdjA2YlFEa25LeVZVK2VOQXZqUkZlWndhZGJKeTZtMzdRYkI4MllNN25VVmREVmhtOXpKV0dEUlNQVWpGSzYrLCJkYXRha2V5IjoiQVFFQkFIaHdtMFlhSVNKZVJ0Sm01bjFHNnVxZWVrWHVvWFhQZTVVRmNlOVJxOC8xNHdBQUFINHdmQVlKS29aSWh2Y05BUWNHb0c4d2JRSUJBREJvQmdrcWhraUc5dzBCQndFd0hnWUpZSVpJQVdVREJBRXVNQkVFREtQbEE5b1VnVUpyY3JkOFFRSUJFSUE3MHJETXcwMFJUc0R4eDBCOEN2NXJTK25waW5iUEw4WG9UeUpubmxnbWhGTFkwcGo3WGg4ZEpxMHlkSXpNWGhYT2xxb2ZFUFU4UVk4UkZkRT0iLCJ2ZXJzaW9uIjoiMiIsInR5cGUiOiJEQVRBX0tFWSIsImV4cGlyYXRpb24iOjE1MjE4ODIxOTZ9 https://XXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com
@@ -139,13 +141,11 @@ The output of this command is the `docker login` command that we wil need to run
 To login to ECR, copy this output and execute it as a linux command. The output will be the following:
 
     WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-    Login Succeeded
-
->NOTE: If you are running it in a linux terminal, you can just run the command like this `$(aws ecr get-login --no-include-email --region us-east-1)` which will tell your shell to execute the output of the first command.  
+    Login Succeeded  
 
 If you are unable to login to ECR, check your IAM user group permissions.
 
-Now, let's tag our image locally and them push our image to the ECR repository. Use the following commands:
+Now, let's tag our image locally and then push our image to the ECR repository. Use the following commands:
 
     $ docker tag containers-workshop-app:latest XXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app:latest
     $ docker push XXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app:latest
@@ -173,7 +173,7 @@ You can see your pushed images by viewing the repository in the AWS Console.  Al
 
     $ aws ecr list-images --repository-name=containers-workshop-app --region us-east-1
 
-Whose output will look like this    
+Whose output will look like this:
 
     {
         "imageIds": [
@@ -188,5 +188,5 @@ Whose output will look like this
 
 [![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
-[back-to-menu]: https://github.com/bemer/containers-on-aws-workshop
+[back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
 [continue-workshop]: /03-DeployEcsCluster
