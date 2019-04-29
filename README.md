@@ -1,6 +1,6 @@
 ![workshop logo](https://github.com/bemer/containers-on-aws-workshop/blob/master/images/containers-on-aws-worshop-logo.jpg)
 
-# Welcome to the Containers On AWS Workshop
+# Welcome to the Containers and continuous delivery workshop on AWS
 
 Hello and welcome to the Containers On AWS Workshop! Please, read the instructions bellow carefully.
 
