@@ -18,12 +18,9 @@ This section describes the hardware and software needed for this workshop, and h
 
 This workshop can be executed both on a Cloud9 environment or in your own computer. Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. This environment already comes with Git, Docker, AWS CLI and all the necessary tools that you'll need to run this lab.
 
-If you still want to run this lab using your own computer instead of using the Cloud9 interface, jump to the step [6. Running on your own computer](/01-EnvironmentSetup#6-running-on-your-own-computer), otherwise, continue with the following steps.
-
-
 ## 2. The VPC Structure
 
-For this workshop, we are going to use a VPC with public and private subnets. All EC2 instances and Fargate tasks should run on private subnets. All Load Balancers should run on public subnets.
+For this workshop, we are going to use a VPC with public and private subnets. All Fargate tasks should run on private subnets. All Load Balancers should run on public subnets.
 
 > NOTE: If you are running this workshop on a large group of people, you can optionally create just one VPC for the entire workshop, instead of one VPC per workshop participant. This is just to prevent you hitting some VPC limits for your AWS account, like number of VPCs per region and number of Elastic IPs per region.
 
@@ -31,7 +28,7 @@ For this workshop, we are going to use a VPC with public and private subnets. Al
 
 ## 3. Infrastructure Setup (with Cloud9)
 
-In order to deploy the infrastructure to your account, you can use one of the following links according to the region you with to use. These are the regions that currently support Fargate and Cloud9.
+In order to deploy the infrastructure to your account, you can use one of the following links according to the region you want to use. These are the regions that currently support Fargate and Cloud9.
 
 |Deploy | Region |
 |:---:|:---:|
@@ -41,15 +38,15 @@ In order to deploy the infrastructure to your account, you can use one of the fo
 |[![launch stach](/01-EnvironmentSetup/images/launch_stack_button.png)][eu-west-1-with-cloud9] | EU (Ireland)|
 |[![launch stach](/01-EnvironmentSetup/images/launch_stack_button.png)][ap-southeast-1-with-cloud9] | Asia Pacific (Singapore)|
 
-In the CloudFormation screen, add your name under the resource naming. This is going to add your name in front of the names to all the resources created, so in case you are running the workshop with someone else in the same account, you will be able to know your resources.
+In the CloudFormation screen, add your name under the resource naming. This is going to add your name in front of the names of all the resources created, so in case you are running the workshop with someone else in the same account, you will be able to know your resources.
 
-Wait till the status of the stack be changed to `CREATE_COMPLETE`, click in the **Outputs** tab and take note of all the values in the **Value** colunm. If you are using the template that provision a Cloud9 instance, you will have the `Cloud9URL` option. You can click in this URL to access your Cloud9 instance:
+Wait till the status of the stack is changed to `CREATE_COMPLETE`, click in the **Outputs** tab and take note of all the values in the **Value** colunm. As you are using a template that also provisions a Cloud9 instance, you will see the `Cloud9URL` option. You can click in this URL to access your Cloud9 instance:
 
 ![CloudFormation Output](/01-EnvironmentSetup/images/cloudformation_output.png)
 
 ## 4. Understanding the Cloud9 Interface
 
-AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything that we need to run the workshop, let's now take a moment to understand where we will be running our commands and executing the steps.
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything we need to run the workshop, let's take a moment now to understand where we will be running our commands and executing the steps.
 
 This is the main interface presented by Cloud9 and the first thing you will see when clicking in the CloudFormation output URL:
 
@@ -61,11 +58,11 @@ All the commands presented in the workshop, such as `docker build`, `aws ecr get
 
 >NOTE: You can arrange the size of the windows inside the Cloud9 interface.
 
-On the left side of the screen, you will have a list of all files:
+On the left side panel, you will see a list of all your files:
 
 ![Cloud9 Files](/01-EnvironmentSetup/images/cloud9_files.png)
 
-On the top window, you have a text editor, where you can make all the changes in the files. If you just click twice in any file on the *files** menu, you will be able to edit it:
+On the top window, you have a text editor, where you can make changes to the files. If you just click twice on any file on the *files** menu, you will be able to edit it:
 
 ![Cloud9 Editor](/01-EnvironmentSetup/images/cloud9_editor.png)
 
@@ -73,15 +70,11 @@ On the top window, you have a text editor, where you can make all the changes in
 
 In order to clone this repository, you can use the following command:
 
-    $ git clone https://github.com/bemer/containers-on-aws-workshop.git
+    $ git clone https://github.com/patrici0/ECS-Code-on-AWS.git
 
-After cloning the repository, you will see that a new folder called `containers-on-aws-workshop` will be created. All the content will be available inside this folder.
+After cloning the repository, you will see that a new folder called `ECS-Code-on-AWS` has been created. All the content will be available inside this folder.
 
 After provisioning the infrastructure and cloning the repository within your Cloud9 environment, you can go to the next chapter: [2. Creating your Docker image](/02-CreatingDockerImage).
-
-<br>
-
-[![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
 <br>
 
