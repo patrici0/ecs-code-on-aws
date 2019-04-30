@@ -2,7 +2,7 @@
 
 # Welcome to the "Containers and continuous delivery workshop on AWS"
 
-Hello and welcome to the containers and continuous delivery workshop on AWS Workshop! Please, read the instructions bellow carefully.
+Hello and welcome to the containers and continuous delivery workshop on AWS! Please, read the instructions bellow carefully.
 
 ## 1. It's all about containers!
 
