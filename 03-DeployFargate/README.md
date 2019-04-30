@@ -41,7 +41,7 @@ For the **Cluster name** use `containers-workshop-fargate-cluster` and click on 
 
 ## 3. Creating the ALB
 
-Now that we've created our cluster, we need an [Application Load Balancer (ALB)](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/) to route traffic to our endpoints. Compared to a traditional load balancer, an ALB lets you direct traffic between different endpoints. In our example, we'll use the enpoint `/app`.
+Now that we've created our cluster, we need an [Application Load Balancer (ALB)](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/) to route traffic to our endpoints. Compared to a traditional load balancer, an ALB lets you direct traffic between different endpoints. In our example, we'll use the enpoint `/`.
 
 To create the ALB:
 
@@ -62,19 +62,19 @@ After adding the information about your Availability Zones, click on **Next: Con
 
 After clicking on next, you should see a message saying that your load balancer is not using any secure listener. We can just skip this screen, by clicking on **Next: Configure Security Groups**.
 
->NOTE: In a production environment, you should also have a secure listener on port 443.  This will require an SSL certificate, which can be obtained from [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/), or from your registrar/any CA.  For the purposes of this workshop, we will only create the insecure HTTP listener. DO NOT RUN THIS IN PRODUCTION.
+>NOTE: In a production environment, you should also have a secure listener on port 443.  This will require an SSL certificate, which can be obtained from [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/), or from a registrar/any CA.  For the purposes of this workshop, we will only create the insecure HTTP listener. DO NOT RUN THIS IN PRODUCTION.
 
-Let's now create a security group to be used by your ALB. In *Step 3: Configure Security Groups* screen, let's select the option `Create a new security group`. Change the **Security group name** to `containers-workshop-alb-sg` and create a rule allowing all traffic in the port `80`:
+Let's now create a security group to be used by your ALB. In the *Step 3: Configure Security Groups* screen, let's select the option `Create a new security group`. Change the **Security group name** to `containers-workshop-alb-sg` and create a rule allowing all traffic in the port `80`:
 
 ![create alb security group](/03-DeployFargate/images/create_alb_sg.png)
 
 Then, click on **Next: Configure Routing**.
 
-During this initial setup, we're just adding a dummy health check on `/`.  We'll add specific health checks for our ECS service endpoint when registering it with the ALB. Let's change only the the **Name** to `dummy`:
+During this initial setup, we're just adding a dummy health check on `/`.  We'll add specific health checks for our ECS service endpoint when registering it with the ALB. Let's only fill in the field **Name** with the text `dummy`:
 
 ![add routing](/03-DeployFargate/images/configure_alb_routing.png)
 
-Click on **Next: Register Targets** and skip this section by just clicking on **Next: Review**. If your values look correct, click **Create**:
+Click on **Next: Register Targets** and skip this next section by just clicking on **Next: Review**. If your values look correct, click **Create**:
 
 ![alb creation](/03-DeployFargate/images/alb_creation.png)
 
@@ -88,16 +88,18 @@ In the **Task Definition Name** type `containers-workshop-fargate-task-def`. For
 
 ![task configuration](/03-DeployFargate/images/task_configuration.png)
 
-Under **Task execution role** choose `ecsTaskEcecutionRole`, if that role is not listed, choose `Create new role`.
+For **Task execution role** choose `ecsTaskEcecutionRole`, if that role is not listed, choose `Create new role`.
 
-Under **Task memory (GB)** select `0.5GB`. For **Task CPU (vCPU)** select `0.25 vCPU`.
+For **Task memory (GB)** select `0.5GB`. For **Task CPU (vCPU)** select `0.25 vCPU`.
 
-Click on **Add container**:
+Then, click on the **Add container** button:
 
 ![task size](/03-DeployFargate/images/task_size.png)
 
-For **Container name** type the name `containers-workshop-app`. For the **Image** use the same ECR URL we have been using in the previous modules of this workshop, which should look like this:
+For **Container name** type in the name `containers-workshop-app`. For the **Image** field, use the same ECR URL we have been using in the previous modules of this workshop, which should look like this:
+
     XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app:latest
+
 Then under **Port mappings** type `80` and leave `tcp` as the protocol. Then, click on **Add**:
 
 ![task container](/03-DeployFargate/images/fargate_container.png)
