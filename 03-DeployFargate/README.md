@@ -138,7 +138,7 @@ Choose `DISABLED` for the **Auto-assign public IP** option.
 
 Under the `Load balancing` section, select `Application Load Balancer` as the **Load balancer type**. Then, under **Service IAM role** you will see a field called **Load balancer name**, so you need to select containers-workshop-alb`, which is the application load balancer created previously, and probably your only choice at this point.
 
-Let's configure the integration between the ECS Service and the Application Load Balancer, so we are able to access the application through the ALB. Under the "Container to load balance" section, for the **Container name : port**  select `containers-workshop-app:80`. Then, click on **Add to load balancer**:
+Let's configure the integration between the ECS Service and the Application Load Balancer, so we are able to access the application through the ALB. Under the *"Container to load balance"* section, for the **Container name : port**  select `containers-workshop-app:80`. Then, click on **Add to load balancer**:
 
 ![add to ALB](/03-DeployFargate/images/add_container_to_alb.png)
 
@@ -158,15 +158,15 @@ Since we will not use Auto Scaling in this tutorial, in the `Set Auto Scaling` s
 
 ## 6. Accessing the application
 
-After finnishing the creation of your service, go back to the ECS Console. Select the cluster and click on the *Tasks* tab. You'll see a task in `PENDING` status.
+After finnishing the creation of your service, go back to the ECS Console. Select the cluster and click on the **Tasks** tab. You'll see a task in `PENDING` status.
 
 ![pending task](/03-DeployFargate/images/pending_task.png)
 
-A Fargate task can take around 30 seconds to a minute before changing its status to `RUNNING`. That's because, for each new task, an ENI is created in your VPC with an IP from the subnet you chose, and then, it's attached to the Fargate task.
+A Fargate task can take around 30 seconds to a minute before changing its status to `RUNNING`. That's because, for each new task, an ENI (Elastic Network Interface) is created in your VPC with an IP from the subnet you chose, and then, it's attached to the Fargate task.
 
 ![running task](/03-DeployFargate/images/running_task.png)
 
-We can test our application by accessing it through the Application Load Balancer. To find the DNS A record for your ALB, navigate to the EC2 Console > **Load Balancers** > **Select your Load Balancer**. Under **Description**, you can find details about your ALB, including a section for **DNS Name**. Enter this value in your browser:
+We can test our application by accessing it through the Application Load Balancer. To find the DNS record for your ALB, navigate to the EC2 Console > **Load Balancers** > **Select your Load Balancer**. Under **Description**, you can find details about your ALB, including a section for **DNS Name**. Copy that value and enter it in your browser:
 
 ![alb web test](/03-DeployFargate/images/alb_app_response.png)
 
