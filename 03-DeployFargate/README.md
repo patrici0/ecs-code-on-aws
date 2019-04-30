@@ -96,11 +96,11 @@ Then, click on the **Add container** button:
 
 ![task size](/03-DeployFargate/images/task_size.png)
 
-For **Container name** type in the name `containers-workshop-app`. For the **Image** field, use the same ECR URL we have been using in the previous modules of this workshop, which should look like this:
+For **Container name** type in `containers-workshop-app`. For the **Image** field, use the same ECR URL we have been using in the previous modules of this workshop, which should look like this:
 
     XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app:latest
 
-Then under **Port mappings** type `80` and leave `tcp` as the protocol. Then, click on **Add**:
+Then, under **Port mappings** type in `80` and leave `tcp` as the protocol. Finally, click on **Add**:
 
 ![task container](/03-DeployFargate/images/fargate_container.png)
 
@@ -110,19 +110,19 @@ Click on **Create**.
 
 Now that we have the description of everything we need to run our application in the `Task Definition`, the next step is to run our container using AWS Fargate. Let's do it by creating a `Service`.
 
-In ECS, a `Service` allows you to run and maintain a specified number (the "desired count") of instances of a task definition simultaneously in an Amazon ECS cluster. If any of your tasks should fail or stop for any reason, the Amazon ECS service scheduler launches another instance of your task definition to replace it and maintain the desired count of tasks in the service. You can find more information about ECS Services in the [ECS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+In ECS, a `Service` allows you to run and maintain a specified number (the "desired count") of instances of a task definition simultaneously in an Amazon ECS cluster. If any of your tasks should fail or stop for any reason, the Amazon ECS service scheduler launches another instance of your task definition to replace it and maintain the desired count of tasks in service. You can find more information about ECS Services in the [ECS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
 
 Navigate back to the [Clusters screen](https://console.aws.amazon.com/ecs/) on the ECS console, and click on the cluster name `containers-workshop-fargate-cluster` previously created.
 
 >If you don't have a cluster named **containers-workshop-fargate-cluster**, create one following the procedures in [Creating the cluster](/03-DeployFargate#2-creating-the-cluster).
 
-In the details page for the **containers-workshop-fargate-cluster**, under the `Services` tab, click on the button **Create**:
+In the details page for the **containers-workshop-fargate-cluster**, under the `Services` tab, click on the **Create** button:
 
 ![service creation](/03-DeployFargate/images/service_creation.png)
 
 Select `Fargate` as the `Launch Type`, and choose the Task Definition created in the previous section, whose name should be **containers-workshop-fargate-task-def**.
-Under **Service name** type in `containers-workshop-fargate-service`.
-For the purposes of this demo, we'll only start one copy of this task, so type `1` under **Number of tasks**
+For the field **Service name** type in `containers-workshop-fargate-service`.
+For the purposes of this demo, we'll only start one copy of this task, so type in `1` under **Number of tasks**
 
 >In a production environment, you will always want more than one copy of each task running for reliability and availability.
 
@@ -131,6 +131,9 @@ For the purposes of this demo, we'll only start one copy of this task, so type `
 Click on **Next step**.
 
 For **Cluster VPC** select your containers-workshop VPC and under **Subnets** select both private subnets.
+
+  Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private** which we are using for the containers.
+
 Choose `DISABLED` for the **Auto-assign public IP** option.
 
 Under the `Load balancing` section, select `Application Load Balancer` as the **Load balancer type**. Then, under **Service IAM role** you will see a field called **Load balancer name**, so you need to select `containers-workshop-alb`, which is the application load balancer created previously, and probably your only choice at this point.
