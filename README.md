@@ -6,7 +6,7 @@ Hello and welcome to the containers and continuous delivery workshop on AWS! Ple
 
 ## 1. It's all about containers!
 
-We will walk you through the very basics of containers: from installing and configuring Docker, running containers locally, deploying them on AWS container services like Elastic Container Services (ECS), till implementing a Continuous Delivery pipeline for your container and help you configure Auto Scaling for your containerized app.
+We will walk you through the very basics of containers: from installing and configuring Docker, running containers locally, deploying them on AWS container services like Elastic Container Services (ECS), through implementing a Continuous Delivery pipeline for your containerized application.
 
 ## 2. Let's use Cloud9 as our integrated development environment!
 
