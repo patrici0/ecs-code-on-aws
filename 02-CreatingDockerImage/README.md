@@ -86,7 +86,7 @@ To check if your container is running:
 
      $ docker ps
 
-This should return a list of all the currently running containers.  In this example,  it should just return a single container, the one that we just started:
+This should return a list of all the currently running containers.  In this example,  it should just return a single container, the one that we've just started:
 
     CONTAINER ID        IMAGE                     COMMAND             CREATED                  STATUS              PORTS                          NAMES
     1255ca3087f5        containers-workshop-app   "node server.js"    Less than a second ago   Up 1 second         0.0.0.0:80->8080/tcp, 8080/tcp   nifty_snyder
@@ -120,7 +120,7 @@ Once you've created the repository, you will be redirected to the ECR main scree
 
 ![ecr main screen](/02-CreatingDockerImage/images/ecr_main_screen.png)
 
-Now, access your repository by clicking on its name. Then click on the button **View push commands** at the top right corner. It will display a list of commands that you will need to use to push your Docker images. These commands will be like this:
+Now, access your repository by clicking on its name. Then click on the button **View push commands** at the top right corner. It will display a list of commands that you will need to use to push your Docker images. The list of commands should look like this:
 
 ![push commands](/02-CreatingDockerImage/images/push_commands.png)
 
