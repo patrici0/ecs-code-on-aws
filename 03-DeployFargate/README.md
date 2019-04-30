@@ -132,7 +132,7 @@ Click on **Next step**.
 
 For **Cluster VPC** select your containers-workshop VPC and under **Subnets** select both private subnets.
 
-  Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private** which we are using for the containers.
+>Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private** which we are using for the containers.
 
 Choose `DISABLED` for the **Auto-assign public IP** option.
 
