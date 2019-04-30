@@ -130,21 +130,21 @@ For the purposes of this demo, we'll only start one copy of this task, so type i
 
 Click on **Next step**.
 
-For **Cluster VPC** select your containers-workshop VPC and under **Subnets** select both private subnets.
+For **Cluster VPC** select your containers-workshop VPC and for **Subnets** select both private subnets.
 
->Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private** which we are using for the containers.
+>Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private**, which we are using for the containers.
 
 Choose `DISABLED` for the **Auto-assign public IP** option.
 
-Under the `Load balancing` section, select `Application Load Balancer` as the **Load balancer type**. Then, under **Service IAM role** you will see a field called **Load balancer name**, so you need to select `containers-workshop-alb`, which is the application load balancer created previously, and probably your only choice at this point.
+Under the `Load balancing` section, select `Application Load Balancer` as the **Load balancer type**. Then, under **Service IAM role** you will see a field called **Load balancer name**, so you need to select containers-workshop-alb`, which is the application load balancer created previously, and probably your only choice at this point.
 
-Let's configure the integration between the ECS Service and the Application Load Balancer, so we are able to access the application through the ALB. Under the `Container to load balance` section, for the **Container name : port**  select `containers-workshop-app:80`. Click on **Add to load balancer**:
+Let's configure the integration between the ECS Service and the Application Load Balancer, so we are able to access the application through the ALB. Under the "Container to load balance" section, for the **Container name : port**  select `containers-workshop-app:80`. Then, click on **Add to load balancer**:
 
 ![add to ALB](/03-DeployFargate/images/add_container_to_alb.png)
 
 This final step allows you to configure the container with the ALB. When we created our ALB, we only added a listener for HTTP:80.  Select this from the dropdown menu as the value for **Production listener port**.
 For **Target Group Name**, select `create new` and next to it enter a value that will make sense to you later, like `containers-workshop-target`.
-For **Path Pattern**, the value should be `/*`. And in the field for **Evaluation order**, add the number `1`.
+For **Path Pattern**, the value should be `/*`. And in the field for **Evaluation order**, type in the number `1`.
 
 Then, for **Health check path**, use the value `/`.
 
@@ -154,7 +154,7 @@ Finally, under the last section **Service discovery (optional)** uncheck **Enabl
 
 If the values look correct, click **Next Step**.
 
-Since we will not use Auto Scaling in this tutorial, in the `Set Auto Scaling` screen, just click in **Next Step** and after reviewing your configurations, click on **Create Service**.
+Since we will not use Auto Scaling in this tutorial, in the `Set Auto Scaling` screen, just click on **Next Step** and after reviewing your configurations, click on **Create Service**.
 
 ## 6. Accessing the application
 
