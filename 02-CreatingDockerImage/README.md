@@ -16,11 +16,12 @@ This tutorial is going to drive you through the process of creating your first D
 
 >This Docker image will have a very simple web application that you can find in the `00-Application/app` directory.
 
-In this tutorial, we assume that you completed the [Setup Environment tutorial](/01-EnvironmentSetup) and:
+In this tutorial, we assume that you completed the [Environment Setup tutorial](/01-EnvironmentSetup) and:
 
 * [Have a working AWS account](<https://aws.amazon.com>)
 * [Have the AWS CLI installed](<http://docs.aws.amazon.com/cli/latest/userguide/installing.html>)
 
+These tools should come pre-installed on your Cloud9 environment.
 To check if you have the AWS CLI installed and configured:
 
     $ aws --version
