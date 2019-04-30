@@ -20,7 +20,7 @@ This tutorial will guide you through the utilization of an AWS Fargate to deploy
 
 In order to run this tutorial, you must have completed the following steps:
 
-* [Setup Environment](/01-SetupEnvironment)
+* [Setup Environment](/01-EnvironmentSetup)
 * [Creating your Docker image](/02-CreatingDockerImage)
 
 After concluding this tutorial, you will have an application running in AWS Fargate.
