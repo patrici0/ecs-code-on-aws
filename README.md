@@ -23,7 +23,7 @@ For that purpose we will launch an AWS CloudFormation template on our next secti
 
 ## 4. Enough jibber jabber...
 
-You can start the Containers on AWS workshop by clicking in the following link:
+You can start the workshop by clicking in the following link:
 
 [![start workshop](/images/start_workshop.png)][start_workshop]
 
