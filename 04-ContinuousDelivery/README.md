@@ -12,17 +12,17 @@
 
 ## 1. Tutorial overview
 
-So far we've been deploying our containers into ECS manually. On a production environment, changes that happens on code or on the container image itself could be built, tested and deployed, all automatically. This process is commonly known as Continuous Delivery (CD).
+So far we've been deploying our containers into ECS manually. On a production environment, changes that happens on code or on the container image itself could be built, tested, and deployed, all automatically. This process is commonly known as Continuous Delivery (CD).
 
 To help us achieve this, we must create a Continuous Delivery pipeline that will orchestrate different stages of our software release process. For this workshop our pipeline will have three stages:
 
-**a) Source stage**: the Git repository branch where all the changes are promoted to a production environment. We will use AWS CodeCommit as our Git repository;
+**a) Source stage**: the Git repository branch where all the changes are promoted to a production environment. We will use *AWS CodeCommit* as our Git repository;
 
-**b) Build stage**: automatically pulls the content from the Git repository upon detecting changes, then it builds and tags the Docker image, and pushes the new version to Amazon ECR. We will use AWS CodeBuild for this job;
+**b) Build stage**: automatically pulls the content from the Git repository upon detecting changes, then it builds and tags the Docker image, and pushes the new version to Amazon ECR. We will use *AWS CodeBuild* for this job;
 
 **c) Deployment stage**: automatically deploys the new version of our application that is on Amazon ECR onto Amazon ECS. Amazon ECS itself will be responsible for deploying it without any downtime;
 
-Since we already have the Deployment stage working, since we already configured ECS, we only need to create the Source and the Build stages, and later, figure out how to connect all those stages together to finally form an actual Continuous Delivery pipeline.
+Since we already have the Deployment stage working, and configured ECS, we just need to create the Source and the Build stages, and later, figure out how to connect all those stages together to finally form an actual Continuous Delivery pipeline.
 
 Let's begin with the Source stage.
 
@@ -44,7 +44,7 @@ For **Respoitory name** type `containers-workshop-repository`. Leave **Descripti
 
 ![CodeCommit create repository](/04-ContinuousDelivery/images/codecommit_create_repository_II.png)
 
-Now follow execute the following commands to clone your repository:
+Now run the following commands to clone your repository:
 
     cd ~/environment
     git config --global credential.helper '!aws codecommit credential-helper $@'
@@ -57,7 +57,7 @@ The output should look similar to this:
     $ warning: You appear to have cloned an empty repository.
     $ Admin:~/environment $
 
-Aditionally you'll also need to type the following commands with your email and a username. This is just to identify who commited a new change to the repository:
+Aditionally you'll also need to type in the following commands and add your email and a username. This is just to identify who commited a new change to the repository:
 
     git config --global user.email "YOUREMAIL@HERE.COM"
     git config --global user.name "USERNAME"
@@ -110,7 +110,7 @@ We can also list the files through the CodeCommit console interface:
 
 ## 3. Creating a Build stage
 
-Before we create our CodeBuild environment, we need to upload a YAML file with all the build commands and specifications. This file will be read by CodeBuild everytime a new build must be done.
+Before we create our CodeBuild environment, we need to upload a YAML file with all the build commands and specifications. This file will be read by CodeBuild everytime a new build job is going to be executed.
 
 In your Cloud9 environment, click on the menu **File > New File**
 
@@ -159,7 +159,7 @@ At this point, your repository folder should contain an `app` folder, a `Dockerf
 
 The `buildpsec.yml` shoudld be listed now
 
-![List buildspec](/05-ContinuousDelivery/images/buildspec_list.png)
+![List buildspec](/04-ContinuousDelivery/images/buildspec_list.png)
 
 Now we have everything that we need to create our Build environment. At the AWS Management Console, click on **Services**, type `Build` in the search field and then select **CodeBuild** from the list
 
