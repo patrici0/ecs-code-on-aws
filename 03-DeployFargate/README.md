@@ -158,7 +158,7 @@ Since we will not use Auto Scaling in this tutorial, in the `Set Auto Scaling` s
 
 ## 6. Accessing the application
 
-After finnishing the creation of your service, go back to the ECS Console. Select the cluster and click on the Tasks tab. You'll see a task in `PENDING` status.
+After finnishing the creation of your service, go back to the ECS Console. Select the cluster and click on the *Tasks* tab. You'll see a task in `PENDING` status.
 
 ![pending task](/03-DeployFargate/images/pending_task.png)
 
