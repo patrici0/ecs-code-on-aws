@@ -21,7 +21,8 @@ In this tutorial, we assume that you completed the [Environment Setup tutorial](
 * [Have a working AWS account](<https://aws.amazon.com>)
 * [Have the AWS CLI installed](<http://docs.aws.amazon.com/cli/latest/userguide/installing.html>)
 
-These tools should come pre-installed on your Cloud9 environment.
+These tools should come pre-installed with your Cloud9 environment.
+
 To check if you have the AWS CLI installed and configured:
 
     $ aws --version
