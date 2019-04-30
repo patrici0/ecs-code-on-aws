@@ -124,7 +124,7 @@ For the purposes of this demo, we'll only start one copy of this task, so type `
 
 >In a production environment, you will always want more than one copy of each task running for reliability and availability.
 
-  ![create service](/03-DeployEcsCluster/images/configure_service.png)
+  ![create service](/03-DeployFargate/images/configure_service.png)
 
 Click on **Next step**.
 
