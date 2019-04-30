@@ -161,7 +161,7 @@ The `buildpsec.yml` shoudld be listed now
 
 ![List buildspec](/04-ContinuousDelivery/images/buildspec_list.png)
 
-Now we have everything that we need to create our Build environment. At the AWS Management Console, click on **Services**, type `Build` in the search field and then select **CodeBuild** from the list
+Now we have everything we need to create our Build environment. At the AWS Management Console, click on **Services**, type in `Build` in the search field and then select **CodeBuild** from the list
 
 ![CodeBuild](/04-ContinuousDelivery/images/codebuild.png)
 
@@ -173,7 +173,7 @@ Otherwise, click on **Create build project**
 
 ![CodeBuild create project](/04-ContinuousDelivery/images/codebuild_create_project.png)
 
-Change only what's defined below:
+In the following screen, change only what's defined below:
 
 **Project name**: `containers-workshop-build`
 
@@ -187,7 +187,7 @@ Change only what's defined below:
 
 **Runtime version**: `aws/codebuild/docker:17.09.0`
 
-**Service role**: make sure `New service role` is selected. In `Role name`, if the role name is not already filled, type `codebuild-containers-workshop-build-service-role`
+**Service role**: make sure `New service role` is selected. In `Role name`, if the role name is not already filled in, type in `codebuild-containers-workshop-build-service-role`
 
 >NOTE: take note of your role name because you will need to modify its permissions later on
 
@@ -198,7 +198,8 @@ Scroll down to **Environment variables**: let's create two env vars:
 For `Name` type in `REPOSITORY_URI`, for `Value` type in your ECR URI, which looks like this:
     XXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app
 
-Then click on the **Add environment variable** button to populate another variable
+Then click on the **Add environment variable** button to populate another variable.
+
 For `Name` type in `AWS_DEFAULT_REGION`, for `Value` type in the region code where your ECR repository resides (e.g. `us-east-1` for N. Virginia, `us-east-2` for Ohio...).
 
 Scroll down to the bottom of the page and click on **Create build project**. Your build project should be listed now:
@@ -209,7 +210,7 @@ If we try and test our build now, it will fail. There are two reasons for that:
 
 1) The service CodeBuild doesn't have permissions to read anything from our CodeCommit repository;
 
-2) The IAM role associated with the CodeBuild environment only has permissions to input logs into CloudWatch logs (that's the default permissions created by the CodeBuild service role).
+2) The IAM role associated with the CodeBuild environment only has permissions to input logs into CloudWatch logs (that's the default permission created by the CodeBuild service role).
 
 Let's fix these.
 
@@ -227,9 +228,9 @@ For **Statement name** type in `Codebuild permission`
 
 For **Effect** select `Allow`
 
-For **Service principal - optional** type `codebuild.amazonaws.com`
+For **Service principal - optional** type in `codebuild.amazonaws.com`
 
-For **Actions**, at the bottom of this page, click on the empty field under it to show the menu and select the following actions: `ecr:GetDownloadUrlForLayer`, `ecr:PutImage`, `ecr:CompleteLayerUpload`, `ecr:BatchGetImage`, `ecr:InitiateLayerUpload`, `ecr:BatchCheckLayerAvailability`, `ecr:UploadLayerPart`
+For **Actions**, at the bottom of this page, click on the empty field under it. This will show the menu and where you need to select the following actions: `ecr:GetDownloadUrlForLayer`, `ecr:PutImage`, `ecr:CompleteLayerUpload`, `ecr:BatchGetImage`, `ecr:InitiateLayerUpload`, `ecr:BatchCheckLayerAvailability`, `ecr:UploadLayerPart`
 
 ![ECR actions](/04-ContinuousDelivery/images/ecr_actions.png)
 
@@ -249,11 +250,11 @@ Type the role name `codebuild` in the search field. Click on the IAM role that l
 
 ![IAM filter role](/04-ContinuousDelivery/images/iam_filter_role.png)
 
-You should be seeing the **Permissions** tab, if so, click on **Attach policies**
+You should now see the contents of the **Permissions** tab, if so, click on **Attach policies**
 
 ![Find the IAM role](/04-ContinuousDelivery/images/iam_attach_policies.png)
 
-Now in the serch field type `registry` and select `AmazonEC2ContainerRegistryPowerUser`. Click on **Attach policy**
+Now in the serch field type in `registry` and select `AmazonEC2ContainerRegistryPowerUser`. Click on **Attach policy**
 
 ![Attach ECR Power User](/04-ContinuousDelivery/images/iam_registry_policy.png)
 
@@ -271,13 +272,13 @@ For **Branch** select `master`. Leave everything else as the default configurati
 
 ![CodeBuild list project](/04-ContinuousDelivery/images/codebuild_test_project.png)
 
-The build phase might take a while to finish. Once its completed, you should see all the **Phase details** as `Succeeded`.
+The build phase might take a while to finish. Once it has completed, you should be able to go into the **Phase details** tab and see all the phases as `Succeeded`.
 
 ![CodeBuild Status Succeeded](/04-ContinuousDelivery/images/codebuild_succeeded.png)
 
 ## 4. Configuring a Continuous Delivery pipeline
 
-Now that our Source (CodeCommit), Build (CodeBuild) and Deploy (ECS) stages are done, we need a tool to orchestrate and connect all of them together. To achieve this we will use AWS CodePipeline.
+Now that our Source (CodeCommit), Build (CodeBuild) and Deploy (ECS) stages are configured and tested, we need a tool to orchestrate and connect all of them together. To achieve this we will use *AWS CodePipeline*.
 
 AWS CodePipeline already understands the concepts of Stages (Source, Build, Test, Deploy, Approval, Invoke). All we need to do is to create a pipeline, and for each stage, choose the correlated service. For example, when configuring the Source stage, we will choose our CodeCommit respository. And so on...
 
@@ -287,7 +288,7 @@ At the AWS Management Console, click on **Services** > in search field type `pip
 
 ![CodePipeline](/04-ContinuousDelivery/images/codepipeline.png)
 
-If this is your first time using CodePipeline, click in **Get started**.
+If this is your first time using CodePipeline, click on **Get started**.
 
 ![CodePipeline Get started](/04-ContinuousDelivery/images/codepipeline_get_started.png)
 
@@ -295,7 +296,7 @@ Otherwise click on **Create pipeline**
 
 ![CodePipeline create](/04-ContinuousDelivery/images/codepipeline_create.png)
 
-For **Pipeline name** type `containers-workshop-pipeline` and click on **Next**
+For **Pipeline name** type in `containers-workshop-pipeline` and click on **Next**
 
 ![CodePipeline Next Step](/04-ContinuousDelivery/images/codepipeline_next.png)
 
@@ -333,7 +334,7 @@ For **Cluster name** select `containers-workshop-fargate-cluster`
 
 For **Service name** select `containers-workshop-fargate-service`
 
-For **Image filename** type `imagedefinitions.json`
+For **Image filename** type in `imagedefinitions.json`
 
 Click on **Next**
 
@@ -345,13 +346,13 @@ AWS CodePiepline will automatically start the pipeline execution.
 
 The whole process should take around 10 minutes. All three stages should be completed as `Succeeded`.
 
->NOTE: If your pipeline fails, one of the potential reasons could be a permission issue. Check if the IAM Role created by your CodePipeline has ECS full permissions by going to Services > IAM > Roles. Type in the search bar the name of the role and click on it. In **Permissions policies** check if the policy attached to it has "ecs:*" permissions. If not, click on **Attach policies** and search for `AmazonECS_FullAccess`. Select it and click in **Attach policy**.
+>NOTE: If your pipeline fails, one of the potential reasons could be a permissions issue. Check if the IAM Role created by your CodePipeline has ECS full permissions by going to Services > IAM > Roles. Type in the search bar the name of the role and click on it. In **Permissions policies** check if the policy attached to it has "ecs:*" permissions. If not, click on **Attach policies** and search for `AmazonECS_FullAccess`. Select it and click on **Attach policy**.
 
 
 ![CodePipeline Finished](/04-ContinuousDelivery/images/codepipeline_succeeded.png)
 
 
-If you go to the URL of your app you won't see any changes because we didn't change anything at the application level yet. So now, let's do exactly that! Let's change something on our app to see the how pipeline executes automatically upon detecting changes to our source repository.
+If you go to the URL of your app you won't see any changes because we didn't change anything at the application level yet. So now, let's do exactly that! Let's change something in our app to see how the pipeline executes automatically upon detecting changes to our source repository.
 
 ## 5. Testing our pipeline
 
@@ -361,13 +362,13 @@ Right click on the `index.html` > Open
 
 ![Test your pipeline](/04-ContinuousDelivery/images/cloud9_open_index.png)
 
-A new tab will open. In line 37, before `This application is running inside a container!`, add the following text: `This is version 2!`. Should look like this:
+A new tab will open. In line 37, before `This application is running inside a container!`, add the following text: `This is version 2!`. The line should look like this:
 
 ![Test your pipeline](/04-ContinuousDelivery/images/cloud9_edit_html.png)
 
-Save it by using Ctrl+S or Command+S (MacOS) or by clicking on the menu **File - Save**
+Save it by using Ctrl+S or Command+S (MacOS) or by clicking on the menu **File > Save**
 
-Now let's commit our change to the CodeCommit repository. Go to the Terminal tab and type
+Now let's commit our change to the CodeCommit repository. Go to the Terminal tab and type:
 
     cd /home/ec2-user/environment/containers-workshop-repository/app
     git add index.html
@@ -375,13 +376,15 @@ Now let's commit our change to the CodeCommit repository. Go to the Terminal tab
     git push
 
 
-After the push, go back to CodePipeline and see it execute your pipeline automatically. You will see it starting in a minute or so, as the Source stage changes to `In Progress`. Wait until the last stage is completed.
+After the push, go back to CodePipeline and watch it execute your pipeline automatically. You will see it starting in a minute or so, as the Source stage changes to `In Progress`. Wait until the last stage is completed.
 
 
 ![CodePipeline final run](/04-ContinuousDelivery/images/codepipeline_final_test.png)
 
 
 Now go to your app URL and see the new changes in action!
+
+If the changes are reflected on your web app, it means you have completed this workshop successfully. Congratulations!
 
 <br>
 
