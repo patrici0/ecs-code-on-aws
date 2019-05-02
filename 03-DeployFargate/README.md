@@ -88,7 +88,7 @@ In the **Task Definition Name** type `containers-workshop-fargate-task-def`. For
 
 ![task configuration](/03-DeployFargate/images/task_configuration.png)
 
-For **Task execution role** choose `ecsTaskEcecutionRole`, if the role doesn't exist, it will be created for you automatically and you'll see something like this:
+For **Task execution role** choose `ecsTaskEcecutionRole`. If the role doesn't exist, it will be created for you automatically and you'll see something like this:
 
 ![task role](/03-DeployFargate/images/task_exec_role.png)
 
