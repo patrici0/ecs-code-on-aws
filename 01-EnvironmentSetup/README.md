@@ -83,8 +83,8 @@ After provisioning the infrastructure and cloning the repository within your Clo
 [back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
 [continue-workshop]: /02-CreatingDockerImage
 
-[us-east-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/containers-on-aws-workshop-vpc/containers-workshop-with-cloud9.yaml
-[us-east-2-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/containers-on-aws-workshop-vpc/containers-workshop-with-cloud9.yaml
-[us-west-2-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/containers-on-aws-workshop-vpc/containers-workshop-with-cloud9.yaml
-[eu-west-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/containers-on-aws-workshop-vpc/containers-workshop-with-cloud9.yaml
-[ap-southeast-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/containers-on-aws-workshop-vpc/containers-workshop-with-cloud9.yaml
+[us-east-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
+[us-east-2-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
+[us-west-2-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
+[eu-west-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
+[ap-southeast-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
