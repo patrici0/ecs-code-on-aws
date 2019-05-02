@@ -88,7 +88,9 @@ In the **Task Definition Name** type `containers-workshop-fargate-task-def`. For
 
 ![task configuration](/03-DeployFargate/images/task_configuration.png)
 
-For **Task execution role** choose `ecsTaskEcecutionRole`, if that role is not listed, choose `Create new role`.
+For **Task execution role** choose `ecsTaskEcecutionRole`, if that role is was not previously created, it will be created for you automatically, and you'll see something like this:
+
+![task role](/03-DeployFargate/images/task_exec_role.png)
 
 For **Task memory (GB)** select `0.5GB`. For **Task CPU (vCPU)** select `0.25 vCPU`.
 
