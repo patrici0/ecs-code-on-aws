@@ -46,9 +46,9 @@ Wait till the status of the stack changes to `CREATE_COMPLETE`, click on the **O
 
 ## 4. Understanding the Cloud9 Interface
 
-AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything we need to run the workshop, let's take a moment now to understand where we will be running our commands and executing the steps.
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything we need to run the workshop, let's take a moment now to understand how we will running our commands and executing the steps.
 
-This is the main interface presented by Cloud9 and the first thing you will see when clicking in the CloudFormation output URL:
+This is the main interface presented by Cloud9 and the first thing you will see when clicking on the CloudFormation output URL:
 
 ![Cloud9 Main Screen](/01-EnvironmentSetup/images/cloud9_main_screen.png)
 
