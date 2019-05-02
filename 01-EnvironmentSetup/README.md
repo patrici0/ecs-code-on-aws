@@ -38,9 +38,9 @@ In order to deploy the infrastructure to your account, you can use one of the fo
 |[![launch stach](/01-EnvironmentSetup/images/launch_stack_button.png)][eu-west-1-with-cloud9] | EU (Ireland)|
 |[![launch stach](/01-EnvironmentSetup/images/launch_stack_button.png)][ap-southeast-1-with-cloud9] | Asia Pacific (Singapore)|
 
-In the CloudFormation screen, add your name under the resource naming. This is going to add your name in front of the names of all the resources created, so in case you are running the workshop with someone else in the same account, you will be able to know your resources.
+In the CloudFormation screen, add your name under the resource naming. This is going to add your name in front of the names of all the resources created, so if you are running the workshop along with someone else using the same account, you will be able to know your which are your resources.
 
-Wait till the status of the stack is changed to `CREATE_COMPLETE`, click in the **Outputs** tab and take note of all the values in the **Value** colunm. As you are using a template that also provisions a Cloud9 instance, you will see the `Cloud9URL` option. You can click in this URL to access your Cloud9 instance:
+Wait till the status of the stack changes to `CREATE_COMPLETE`, click on the **Outputs** tab and take note of all the values in the **Value** colunm. As you are using a template that also provisions a Cloud9 instance, you will see the `Cloud9URL` option. You can click in this URL to access your Cloud9 instance:
 
 ![CloudFormation Output](/01-EnvironmentSetup/images/cloudformation_output.png)
 
