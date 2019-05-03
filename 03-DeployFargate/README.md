@@ -31,7 +31,7 @@ We will create a new ECS cluster for the Fargate tasks, however, please note a s
 
 Let's create a new cluster to deploy our containers. In your AWS account Management Console, navigate to the [ECS Console](https://console.aws.amazon.com/ecs/).
 
-Click on **Create cluster** and in the following screen select the **Networking only** cluster template. Click in **Next step**:
+On the left side panel, click on **Clusters**, then back on the main screen click the **Create cluster** button, and in the following screen select the **Networking only** cluster template. Click on **Next step**:
 
 ![cluster template](/03-DeployFargate/images/cluster_template.png)
 
