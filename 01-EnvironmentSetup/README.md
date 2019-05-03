@@ -52,17 +52,17 @@ This is the main interface presented by Cloud9 and the first thing you will see 
 
 ![Cloud9 Main Screen](/01-EnvironmentSetup/images/cloud9_main_screen.png)
 
-All the commands presented in the workshop, such as `docker build`, `aws ecr get-login` and so on, should be executed in the terminal window:
+All the commands presented in this workshop, such as `docker build`, `aws ecr get-login` and so on, should be executed within the terminal window at the bottom:
 
 ![Cloud9 Terminal](/01-EnvironmentSetup/images/cloud9_terminal.png)
 
 >NOTE: You can arrange the size of the windows inside the Cloud9 interface.
 
-On the left side panel, you will see a list of all your files:
+On the left side panel, you will see a directory tree of all your files:
 
 ![Cloud9 Files](/01-EnvironmentSetup/images/cloud9_files.png)
 
-On the top window, you have a text editor, where you can make changes to the files. If you just click twice on any file on the *files** menu, you will be able to edit it:
+On the top window, you have a text editor, where you can make changes to the files. If you click twice on any file in the directory tree, it will open and you will be able to edit it:
 
 ![Cloud9 Editor](/01-EnvironmentSetup/images/cloud9_editor.png)
 
