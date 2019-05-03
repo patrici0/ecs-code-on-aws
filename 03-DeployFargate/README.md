@@ -102,7 +102,7 @@ For **Container name** type in `containers-workshop-app`. For the **Image** fiel
 
     XXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app:latest
 
-Then, under **Port mappings** type in `80` and leave `tcp` as the protocol. Finally, click on **Add**:
+Then, under **Port mappings** type in `80` and leave `tcp` as the protocol. Finally, click on **Add** at the bottom of the screen:
 
 ![task container](/03-DeployFargate/images/fargate_container.png)
 
