@@ -60,7 +60,7 @@ On this same screen, under **Availability Zones** select the VPC `containers-wor
 
 After adding the information about your Availability Zones, click on **Next: Configure Security Settings**.
 
-After clicking on next, you should see a message saying that your load balancer is not using any secure listener. We can just skip this screen, by clicking on **Next: Configure Security Groups**.
+At this screen you should see a message saying that your load balancer is not using any secure listener. We can just skip this screen, by clicking on **Next: Configure Security Groups**.
 
 >NOTE: In a production environment, you should also have a secure listener on port 443.  This will require an SSL certificate, which can be obtained from [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/), or from a registrar/any CA.  For the purposes of this workshop, we will only create the insecure HTTP listener. DO NOT RUN THIS IN PRODUCTION.
 
