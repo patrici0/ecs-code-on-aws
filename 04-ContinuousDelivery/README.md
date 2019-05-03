@@ -110,13 +110,13 @@ We can also list the files through the CodeCommit console interface:
 
 ## 3. Creating a Build stage
 
-Before we create our CodeBuild environment, we need to upload a YAML file with all the build commands and specifications. This file will be read by CodeBuild everytime a new build job is going to be executed.
+Before we create our CodeBuild environment, we need to upload a YAML file with all the build commands and specifications. This file will be read by CodeBuild everytime a new build job is executed.
 
 In your Cloud9 environment, click on the menu **File > New File**
 
 ![Cloud9 new file](/04-ContinuousDelivery/images/cloud9_new_file.png)
 
-Paste the following code in the new file, and change the `REPOSITORY_URI` with the URI of your ECR repository
+Paste the following code in the new file:
 
 ```
 version: 0.2
