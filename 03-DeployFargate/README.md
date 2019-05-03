@@ -84,7 +84,7 @@ To create a Task Definition, at the left side of the ECS Console menu, click on 
 
 ![type compatibility](/03-DeployFargate/images/task_compatibility.png)
 
-In the **Task Definition Name** type `containers-workshop-fargate-task-def`. For *Task Role* choose `None`.
+In the **Task Definition Name** type `containers-workshop-fargate-task-def`. For **Task Role** choose `None`.
 
 ![task configuration](/03-DeployFargate/images/task_configuration.png)
 
