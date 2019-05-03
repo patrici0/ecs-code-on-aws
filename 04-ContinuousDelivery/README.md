@@ -68,11 +68,11 @@ At this point, you should have two folders: `containers-workshop-repository` and
 
 Copy everything to the folder that was created when you cloned the empty repository from CodeCommit
 
-    cp -r * /home/ec2-user/environment/ECS-Code-on-AWS/
+    cp -r * /home/ec2-user/environment/containers-workshop-repository/
 
 Then, go to the folder where we will synchronize (push) our chages with the CodeCommit repository
 
-    cd /home/ec2-user/environment/ECS-Code-on-AWS/
+    cd /home/ec2-user/environment/containers-workshop-repository/
 
 Now let's push our application to the repository
 
