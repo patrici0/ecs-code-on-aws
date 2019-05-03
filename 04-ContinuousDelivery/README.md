@@ -185,7 +185,7 @@ In the following screen, change only what's defined below:
 
 **Runtime**: `Docker`
 
-**Runtime version**: `aws/codebuild/docker:17.09.0`
+**Image**: `aws/codebuild/docker:17.09.0`
 
 **Service role**: make sure `New service role` is selected. In `Role name`, if the role name is not already filled in, type in `codebuild-containers-workshop-build-service-role`
 
