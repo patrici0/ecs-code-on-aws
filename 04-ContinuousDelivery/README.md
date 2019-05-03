@@ -64,7 +64,7 @@ Aditionally you'll also need to type in the following commands and add your emai
 
 At this point, you should have two folders: `containers-on-aws-workshop` and `containers-workshop-repository`. Now we need to copy our application to the CodeCommit repository. First, go to the folder where your application resides
 
-    cd /home/ec2-user/environment/containers-on-aws-workshop/00-Application/
+    cd /home/ec2-user/environment/ECS-Code-on-AWS/00-Application/
 
 Copy everything to the folder that was created when you cloned the empty repository from CodeCommit
 
