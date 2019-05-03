@@ -112,7 +112,7 @@ To create a repository, navigate to the [ECR console](https://console.aws.amazon
 ![get started ecr](/02-CreatingDockerImage/images/getting_started_ecr.png)
 
 
-Name your first repository **containers-workshop-app**:
+Name your first repository `containers-workshop-app`:
 
 ![create ecr repository](/02-CreatingDockerImage/images/creating_repository.png)
 
