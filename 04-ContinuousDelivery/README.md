@@ -191,11 +191,12 @@ In the following screen, change only what's defined below:
 
 >NOTE: take note of your role name because you will need to modify its permissions later on
 
-Now expand **> Additional configurations** under the **Environment** section.
+Now expand **> Additional configurations** under this **Environment** section.
 
 Scroll down to **Environment variables**: let's create two env vars:
 
 For `Name` type in `REPOSITORY_URI`, for `Value` type in your ECR URI, which looks like this:
+    
     XXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app
 
 Then click on the **Add environment variable** button to populate another variable.
