@@ -124,15 +124,15 @@ In the details page for the **containers-workshop-fargate-cluster**, under the `
 
 Select `Fargate` as the `Launch Type`, and choose the Task Definition created in the previous section, whose name should be **containers-workshop-fargate-task-def**.
 For the field **Service name** type in `containers-workshop-fargate-service`.
-For the purposes of this demo, we'll only start one copy of this task, so type in `1` under **Number of tasks**
+For the purposes of this demo, we'll only start one copy of this task, so type in `1` into the **Number of tasks** field.
 
 >In a production environment, you will always want more than one copy of each task running for reliability and availability.
 
   ![create service](/03-DeployFargate/images/configure_service.png)
 
-Click on **Next step**.
+Scroll down and click on **Next step**.
 
-For **Cluster VPC** select your containers-workshop VPC and for **Subnets** select both private subnets.
+For **Cluster VPC** select your containers-workshop VPC (whose IP looks like 10.192.0...) and for **Subnets** select both private subnets.
 
 >Pay special attention to the subnets. You'll probably see 4, two of them are public, which we are using for the load balancer, and the other two are **private**, which we are using for the containers.
 
