@@ -40,7 +40,7 @@ Otherwise click **Create repository**.
 
 ![CodeCommit create repository](/04-ContinuousDelivery/images/codecommit_create_repository.png)
 
-For **Respoitory name** type `containers-workshop-repository`. Leave **Description** blank and click on **Create repository**.
+For **Respository name** type `containers-workshop-repository`. Leave **Description** blank and click on **Create repository**.
 
 ![CodeCommit create repository](/04-ContinuousDelivery/images/codecommit_create_repository_II.png)
 
@@ -241,7 +241,7 @@ You permissions should look exactly like this:
 
 ![ECR permissions](/04-ContinuousDelivery/images/ecr_review_permissions.png)
 
-Next step, we need to change de IAM role associated with our CodeBuild environment. So back at the AWS Management Console, go to **Services** > in the search field type `iam` and select **IAM** from the list
+Next step, we need to change the IAM role associated with our CodeBuild environment. So back at the AWS Management Console, go to **Services** > in the search field type `iam` and select **IAM** from the list
 
 ![Select IAM](/04-ContinuousDelivery/images/iam.png)
 
