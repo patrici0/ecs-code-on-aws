@@ -22,7 +22,7 @@ This workshop can be executed both on a Cloud9 environment or in your own comput
 
 For this workshop, we are going to use a VPC with public and private subnets. All Fargate tasks should run on private subnets. All Load Balancers should run on public subnets.
 
-> NOTE: If you are running this workshop on a large group of people, you can optionally create just one VPC for the entire workshop, instead of one VPC per workshop participant. This is just to prevent you hitting some VPC limits for your AWS account, like number of VPCs per region and number of Elastic IPs per region.
+> NOTE: If you are running this workshop for a large group of people, you can optionally create just one VPC for the entire workshop, instead of one VPC per workshop participant. This is just to prevent you hitting some VPC limits for your AWS account, like number of VPCs per region and number of Elastic IPs per region.
 
 ![VPC structure](/01-EnvironmentSetup/images/containers-on-aws-workshop-vpc.png)
 
@@ -46,7 +46,7 @@ Wait till the status of the stack changes to `CREATE_COMPLETE`, click on the **O
 
 ## 4. Understanding the Cloud9 Interface
 
-AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything we need to run the workshop, let's take a moment now to understand how we will running our commands and executing the steps.
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. During this workshop, we will be using Cloud9 to interact with the application code and Docker containers. Since Cloud9 has everything we need to run the workshop, let's take a moment now to understand how we run our commands and execute the steps.
 
 This is the main interface presented by Cloud9 and the first thing you will see when clicking on the CloudFormation output URL:
 
