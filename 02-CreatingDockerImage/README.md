@@ -12,7 +12,7 @@
 
 ## 1. Tutorial overview
 
-This tutorial is going to drive you through the process of creating your first Docker image, running this image locally and pushing it to a image repository. If you are going to execute this lab in the Clou9 environment, you can jump to [2. Creating your first image](/02-CreatingDockerImage#2-creating-your-first-image).
+This tutorial is going to drive you through the process of creating your first Docker image, running this image locally and pushing it to an image repository. If you are going to execute this lab in the Cloud9 environment, you can jump to [2. Creating your first image](/02-CreatingDockerImage#2-creating-your-first-image).
 
 >This Docker image will have a very simple web application that you can find in the `00-Application/app` directory.
 
@@ -173,6 +173,8 @@ This step will take a few minutes. When the command finishes, you should see som
 You can see your pushed images by viewing the repository in the AWS Console.  Alternatively, you can use the CLI:
 
     $ aws ecr list-images --repository-name=containers-workshop-app --region us-east-1
+
+>NOTE: you may need to adjust the `--region` parameter to reflect the region you are working on.
 
 Whose output will look like this:
 
