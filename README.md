@@ -1,4 +1,4 @@
-![workshop logo](https://github.com/bemer/containers-on-aws-workshop/blob/master/images/containers-on-aws-worshop-logo.jpg)
+![workshop logo](https://github.com/patrici0/ECS-Code-on-AWS/blob/master/images/containers-on-aws-worshop-logo.jpg)
 
 # Welcome to the "Containers and continuous delivery workshop on AWS"
 
