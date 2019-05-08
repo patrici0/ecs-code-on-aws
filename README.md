@@ -12,7 +12,7 @@ We will walk you through the very basics of containers: from installing and conf
 
 We strongly recommend you spinning up a Cloud9 environment.
 
-For that purpose we will launch an AWS CloudFormation template on our next section [01-EnvironmentSetup](https://github.com/bemer/containers-on-aws-workshop/tree/master/01-EnvironmentSetup).
+For that purpose we will launch an AWS CloudFormation template on our next section [01-EnvironmentSetup](https://github.com/patrici0/ECS-Code-on-AWS/tree/master/01-EnvironmentSetup).
 
 ## 3. We strongly recommend you running this workshop in the following order:
 
