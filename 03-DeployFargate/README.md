@@ -182,5 +182,5 @@ You have successfully deployed an application with AWS Fargate and Docker contai
 
 [![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
-[back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
+[back-to-menu]: https://github.com/patrici0/ecs-code-on-aws
 [continue-workshop]: /04-ContinuousDelivery
