@@ -70,9 +70,9 @@ On the top window, you have a text editor, where you can make changes to the fil
 
 In order to clone this repository, you can use the following command:
 
-    $ git clone https://github.com/patrici0/ECS-Code-on-AWS.git
+    $ git clone https://github.com/patrici0/ecs-code-on-aws.git
 
-After cloning the repository, you will see that a new folder called `ECS-Code-on-AWS` has been created. All the content will be available inside this folder.
+After cloning the repository, you will see that a new folder called `ecs-code-on-aws` has been created. All the content will be available inside this folder.
 
 After provisioning the infrastructure and cloning the repository within your Cloud9 environment, you can go to the next chapter: [2. Creating your Docker image](/02-CreatingDockerImage).
 
@@ -80,7 +80,7 @@ After provisioning the infrastructure and cloning the repository within your Clo
 
 [![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
-[back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
+[back-to-menu]: https://github.com/patrici0/ecs-code-on-aws
 [continue-workshop]: /02-CreatingDockerImage
 
 [us-east-1-with-cloud9]: https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=containers-workshop-insfrastructure&templateURL=https://s3.amazonaws.com/ecs-code-on-aws/containers-workshop-with-cloud9.yaml
