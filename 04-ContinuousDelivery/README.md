@@ -62,9 +62,9 @@ Aditionally you'll also need to type in the following commands and add your emai
     git config --global user.email "YOUREMAIL@HERE.COM"
     git config --global user.name "USERNAME"
 
-At this point, you should have two folders: `containers-workshop-repository` and `ECS-Code-on-AWS`. Now we need to copy our application to the CodeCommit repository. First, go to the folder where your application resides
+At this point, you should have two folders: `containers-workshop-repository` and `ecs-code-on-aws`. Now we need to copy our application to the CodeCommit repository. First, go to the folder where your application resides
 
-    cd /home/ec2-user/environment/ECS-Code-on-AWS/00-Application/
+    cd /home/ec2-user/environment/ecs-code-on-aws/00-Application/
 
 Copy everything to the folder that was created when you cloned the empty repository from CodeCommit
 
@@ -391,4 +391,4 @@ If the changes are reflected on your web app, it means you have completed this w
 
 [![back to menu](/images/back_to_menu.png)][back-to-menu]
 
-[back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
+[back-to-menu]: https://github.com/patrici0/ecs-code-on-aws
