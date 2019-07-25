@@ -48,13 +48,13 @@ The following steps should be executed in your Cloud9 environment.
 
 If you haven't executed the `git clone` command present in the [Setup Environment](/01-EnvironmentSetup#5-cloning-the-workshop-repository) chapter, do it now using the following command:
 
-    $ git clone https://github.com/patrici0/ECS-Code-on-AWS.git
+    $ git clone https://github.com/patrici0/ecs-code-on-aws.git
 
 Now we are going to build and test our containers locally.  If you've never worked with Docker before, there are a few basic commands that we'll use in this workshop, but you can find a more thorough list in the [Docker "Getting Started" documentation](https://docs.docker.com/engine/getstarted/).
 
 In this step, we are going to build a *Docker image* with a simple web application. The application that we will be using is available on the directory `00-Application` inside the project folder. In this case, lets's navigate to the `00-Application` directory:
 
-    $ cd ECS-Code-on-AWS/00-Application/
+    $ cd ecs-code-on-aws/00-Application/
 
 Take a look at the contents of this directory. You will see that there is a directory called `app/` and also a file called `Dockerfile`. We will be using this `Dockerfile` to package our web application. In order to do that, run the following command inside the `00-Application` directory:
 
@@ -191,5 +191,5 @@ Whose output will look like this:
 
 [![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
-[back-to-menu]: https://github.com/patrici0/ECS-Code-on-AWS
+[back-to-menu]: https://github.com/patrici0/ecs-code-on-aws
 [continue-workshop]: /03-DeployFargate
