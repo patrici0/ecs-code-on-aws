@@ -195,6 +195,8 @@ Under the **Environment** Section
 
 *Image*: `aws/codebuild/standard:2.0`
 
+*Privileged*: Check the box for `Enable this flag if you want to build Docker images or want your builds to get elevated privileges`
+
 *Service role*: make sure `New service role` is selected. In `Role name`, if the role name is not already filled in, type in `codebuild-containers-workshop-build-service-role`
 
 >NOTE: take note of your role name because you will need to modify its permissions later on
