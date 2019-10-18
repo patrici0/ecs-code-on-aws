@@ -175,7 +175,11 @@ Otherwise, click on **Create build project**
 
 In the following screen, change only what's defined below:
 
-**Project name**: `containers-workshop-build`
+Under the **Project configuration** section
+
+*Project name:* `containers-workshop-build`
+
+Under the **Source** Section
 
 **Source provider**: `AWS CodeCommit`
 
