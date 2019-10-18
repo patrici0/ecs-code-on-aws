@@ -122,6 +122,9 @@ Paste the following code in the new file:
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      docker: 18
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
