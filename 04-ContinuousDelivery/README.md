@@ -181,23 +181,27 @@ Under the **Project configuration** section
 
 Under the **Source** Section
 
-**Source provider**: `AWS CodeCommit`
+*Source provider*: `AWS CodeCommit`
 
-**Repository**: `containers-workshop-repository`
+*Repository*: `containers-workshop-repository`
 
-**Operating system**: `Ubuntu`
+*Branch*: `master`
 
-**Runtime**: `Docker`
+Under the **Environment** Section
 
-**Image**: `aws/codebuild/docker:17.09.0`
+*Operating system*: `Ubuntu`
 
-**Service role**: make sure `New service role` is selected. In `Role name`, if the role name is not already filled in, type in `codebuild-containers-workshop-build-service-role`
+*Runtime*: `Standard`
+
+*Image*: `aws/codebuild/standard:2.0`
+
+*Service role*: make sure `New service role` is selected. In `Role name`, if the role name is not already filled in, type in `codebuild-containers-workshop-build-service-role`
 
 >NOTE: take note of your role name because you will need to modify its permissions later on
 
-Now expand **> Additional configurations** under this **Environment** section.
+Now expand *> Additional configurations* under this **Environment** section.
 
-Scroll down to **Environment variables**: let's create two env vars:
+Scroll down to *Environment variables*: let's create two env vars:
 
 For `Name` type in `REPOSITORY_URI`, for `Value` type in your ECR URI, which looks like this:
     
