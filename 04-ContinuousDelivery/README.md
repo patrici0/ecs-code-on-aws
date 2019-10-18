@@ -283,6 +283,8 @@ Under the **Source** section, make sure that the `master` branch is selected
 
 ![CodeBuild list project](/04-ContinuousDelivery/images/codebuild_test_project_new.png)
 
+Now scroll down to the bottom of the page and click on **Start build**
+
 The build phase might take a while to finish. Once it has completed, you should be able to go into the **Phase details** tab and see all the phases as `Succeeded`.
 
 ![CodeBuild Status Succeeded](/04-ContinuousDelivery/images/codebuild_succeeded.png)
