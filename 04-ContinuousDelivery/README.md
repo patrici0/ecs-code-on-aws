@@ -279,9 +279,9 @@ At the AWS Management Console, click on **Services** > in the search field type 
 
 In **CodeBuild**, on the left side panel, click on **Build projects**. Select your project by clicking on the radio button and then click on **Start build**
 
-For **Branch** select `master`. Leave everything else as the default configuration and click on **Start build**
+Under the **Source** section, make sure that the `master` branch is selected
 
-![CodeBuild list project](/04-ContinuousDelivery/images/codebuild_test_project.png)
+![CodeBuild list project](/04-ContinuousDelivery/images/codebuild_test_project_new.png)
 
 The build phase might take a while to finish. Once it has completed, you should be able to go into the **Phase details** tab and see all the phases as `Succeeded`.
 
