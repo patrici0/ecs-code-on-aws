@@ -235,13 +235,13 @@ Click on your repository (`containers-workshop-app`). Then, click on the **Permi
 
 Click on **Add statement**
 
-For **Statement name** type in `Codebuild permission`
+For *Statement name* type in `Codebuild permission`
 
-For **Effect** select `Allow`
+For *Effect* select `Allow`
 
-For **Service principal - optional** type in `codebuild.amazonaws.com`
+For *Service principal - optional* type in `codebuild.amazonaws.com`
 
-For **Actions**, at the bottom of this page, click on the empty field under it. This will show the menu and where you need to select the following actions: `ecr:GetDownloadUrlForLayer`, `ecr:PutImage`, `ecr:CompleteLayerUpload`, `ecr:BatchGetImage`, `ecr:InitiateLayerUpload`, `ecr:BatchCheckLayerAvailability`, `ecr:UploadLayerPart`
+For *Actions*, at the bottom of this page, click on the empty field under it. This will show the menu and where you need to select the following actions: `ecr:GetDownloadUrlForLayer`, `ecr:PutImage`, `ecr:CompleteLayerUpload`, `ecr:BatchGetImage`, `ecr:InitiateLayerUpload`, `ecr:BatchCheckLayerAvailability`, `ecr:UploadLayerPart`
 
 ![ECR actions](/04-ContinuousDelivery/images/ecr_actions.png)
 
