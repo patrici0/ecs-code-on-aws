@@ -1,12 +1,12 @@
 ![workshop logo](https://github.com/patrici0/ecs-code-on-aws/blob/master/images/containers-on-aws-worshop-logo.jpg)
 
-# Welcome to the "Containers and continuous delivery workshop on AWS"
+# Welcome to the "Serverless containers and continuous delivery workshop on AWS"
 
-Hello and welcome to the containers and continuous delivery workshop on AWS! Please, read the instructions below carefully.
+Hello and welcome to the serverless containers and continuous delivery workshop on AWS! Please, read the instructions below carefully.
 
 ## 1. It's all about containers!
 
-We will walk you through the very basics of containers: from installing and configuring Docker, running containers locally, deploying them on AWS container services like Elastic Container Service (ECS), through implementing a Continuous Delivery pipeline for your containerized application.
+We will walk you through the very basics of containers: from installing and configuring Docker, running containers locally, deploying them on AWS container services like Amazon Elastic Container Service (ECS) and AWS Fargate, through implementing a Continuous Delivery pipeline for your containerized application.
 
 ## 2. Let's use Cloud9 as our integrated development environment!
 
