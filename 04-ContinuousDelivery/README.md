@@ -1,8 +1,9 @@
-# 5. Creating a Continuous Delivery Pipeline with Code services and Amazon ECS
+# Creating a Continuous Delivery Pipeline with Code services and Amazon ECS
 
 ![CI/CD](/04-ContinuousDelivery/images/ci_cd.png)
 
-## Quick jump:
+
+**Quick jump:**
 
 * [1. Tutorial overview](/04-ContinuousDelivery#1-tutorial-overview)
 * [2. Creating a Source stage](/04-ContinuousDelivery#2-creating-a-source-stage)
@@ -402,8 +403,12 @@ Now go to your app URL and see the new changes in action!
 
 If the changes are reflected on your web app, it means you have completed this workshop successfully. Congratulations!
 
+In the next step, you'll see a summary of resources created during this workshop in case you want to clean it all up.
+
 <br>
 
-[![back to menu](/images/back_to_menu.png)][back-to-menu]
+[![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
 [back-to-menu]: https://github.com/patrici0/ecs-code-on-aws
+[continue-workshop]: /05-CleanUp

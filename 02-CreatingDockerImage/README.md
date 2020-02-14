@@ -3,7 +3,7 @@
 ![container](/02-CreatingDockerImage/images/container.png)
 
 
-## Quick jump:
+**Quick jump:**
 
 * [1. Tutorial overview](/02-CreatingDockerImage#1-tutorial-overview)
 * [2. Creating your first image](/02-CreatingDockerImage#2-creating-your-first-image)
