@@ -1,6 +1,6 @@
 # Cleaning up AWS resources
 
-![CleanUp](/05-CleanUp/images/cleanup.png)
+![CleanUp](/05-CleanUp/images/clean-up.png)
 
 
 **Quick jump:**
@@ -24,9 +24,10 @@ delete policy start-pipeline-execution-us-east-1-containers-workshop-pipelinecod
 ```
 
 ## 2. AWS Code* tools
-    delete CodePipeline pipeline
-    delete CodeBuild project
-    delete CodeCommit repo
+delete the following resources in this order:
+    CodePipeline pipeline
+    CodeBuild project
+    CodeCommit repo
 
 ## 3. Amazon ECS
 stop/Delete the tasks in the cluster
