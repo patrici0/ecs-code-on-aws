@@ -6,7 +6,7 @@
 **Quick jump:**
 
 * [1. AWS IAM](/05-CleanUp#1-aws-iam)
-* [2. AWS Code* tools](/05-CleanUp#2-aws-code*-tools)
+* [2. AWS Code tools](/05-CleanUp#2-aws-code-tools)
 * [3. Amazon ECS](/05-CleanUp#3-amazon-ecs)
 * [4. Amazon EC2](/05-CleanUp#4-amazon-ec2)
 * [5. Amazon S3](/05-CleanUp#5-amazon-s3)
@@ -24,7 +24,7 @@ delete policy CodeBuildBasePolicy-containers-workshop-build-us-east-1
 delete policy start-pipeline-execution-us-east-1-containers-workshop-pipelinecode 
 ```
 
-## 2. AWS Code* tools
+## 2. AWS Code tools
 Clean up the following resources in order:
 ```
 delete CodePipeline pipeline
