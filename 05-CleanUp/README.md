@@ -25,9 +25,11 @@ delete policy start-pipeline-execution-us-east-1-containers-workshop-pipelinecod
 
 ## 2. AWS Code* tools
 delete the following resources in this order:
-    CodePipeline pipeline
-    CodeBuild project
-    CodeCommit repo
+```
+CodePipeline pipeline
+CodeBuild project
+CodeCommit repo
+```
 
 ## 3. Amazon ECS
 stop/Delete the tasks in the cluster
