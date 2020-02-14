@@ -13,6 +13,7 @@
 * [6. AWS Cloudformation](05-CleanUp#6-aws-cloudformation)
 
 ## 1. AWS IAM
+Clean up the following resources in order:
 ```
 delete role AWSCodePipelineServiceRole-us-east-1-containers-workshop-pipeli
 delete role codebuild-containers-workshop-build-service-role
@@ -24,30 +25,42 @@ delete policy start-pipeline-execution-us-east-1-containers-workshop-pipelinecod
 ```
 
 ## 2. AWS Code* tools
-delete the following resources in this order:
+Clean up the following resources in order:
 ```
-CodePipeline pipeline
-CodeBuild project
-CodeCommit repo
+delete CodePipeline pipeline
+delete CodeBuild project
+delete CodeCommit repository
 ```
 
 ## 3. Amazon ECS
-stop/Delete the tasks in the cluster
+Clean up the following resources in order:
+```
+stop/delete the tasks in the cluster
 delete the service in the cluster
 delete the cluster
-deregister/Delete the task definition versions
+deregister/delete the task definition versions
 delete ECR repo
+```
 
 ## 4. Amazon EC2
+Clean up the following resources in order:
+```
 delete load balancer
 delete target groups
 delete security groups “contai” and “containers-workshop-alb-sg”
+```
 
 ## 5. Amazon S3
+Clean up the following resources in order:
+```
 delete bucket codepipeline-us-east-1-*
+```
 
 ## 6. AWS Cloudformation
+Clean up the following resources in order:
+```
 delete stack containers-workshop-infrastrucutre
+```
 
 <br>
 
