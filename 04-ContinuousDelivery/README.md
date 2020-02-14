@@ -403,10 +403,9 @@ Now go to your app URL and see the new changes in action!
 
 If the changes are reflected on your web app, it means you have completed this workshop successfully. 
 
-*Congratulations!*
+**Congratulations!**
 
-
-In the next and final step, you'll see a summary of resources created during this workshop in case you want to clean it all up.
+>Note: in the next and final step, you'll see a summary of resources created during this workshop in case you want to clean it all up.
 
 <br>
 
