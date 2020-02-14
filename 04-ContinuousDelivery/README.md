@@ -407,7 +407,7 @@ In the next step, you'll see a summary of resources created during this workshop
 
 <br>
 
-[![back to menu](/images/back_to_menu.png)][back-to-menu]
+[![back to menu](/images/back_to_menu.png)][back-to-menu]  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![continue workshop](/images/continue_workshop.png)][continue-workshop]
 
 [back-to-menu]: https://github.com/patrici0/ecs-code-on-aws

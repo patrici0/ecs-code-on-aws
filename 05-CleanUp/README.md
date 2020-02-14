@@ -1,6 +1,6 @@
 # Cleaning up AWS resources
 
-![CleanUp](/05-CleanUp/images/cleanup.jpg)
+![CleanUp](/05-CleanUp/images/cleanup.png)
 
 
 **Quick jump:**
@@ -13,6 +13,7 @@
 * [6. AWS Cloudformation](05-CleanUp#6-aws-cloudformation)
 
 ## 1. AWS IAM
+```
 delete role AWSCodePipelineServiceRole-us-east-1-containers-workshop-pipeli
 delete role codebuild-containers-workshop-build-service-role
 delete role ecsTaskExecutionRole
@@ -20,11 +21,12 @@ delete role cwe-role-us-east-1-containers-workshop-pipeline
 delete policy AWSCodePipelineServiceRole-us-east-1-containers-workshop-pipeline
 delete policy CodeBuildBasePolicy-containers-workshop-build-us-east-1
 delete policy start-pipeline-execution-us-east-1-containers-workshop-pipelinecode 
+```
 
 ## 2. AWS Code* tools
-delete CodePipeline pipeline
-delete CodeBuild project
-delete CodeCommit repo
+    delete CodePipeline pipeline
+    delete CodeBuild project
+    delete CodeCommit repo
 
 ## 3. Amazon ECS
 stop/Delete the tasks in the cluster
