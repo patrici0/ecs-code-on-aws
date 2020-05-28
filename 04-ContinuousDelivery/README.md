@@ -197,7 +197,7 @@ Under the **Environment** Section
 
 *Runtime*: `Standard`
 
-*Image*: `aws/codebuild/standard:2.0`
+*Image*: `aws/codebuild/standard:4.0`
 
 *Privileged*: Check the box for `Enable this flag if you want to build Docker images or want your builds to get elevated privileges`
 
