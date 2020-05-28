@@ -204,7 +204,7 @@ Under the **Environment** Section
 
 Now expand *> Additional configurations* under this **Environment** section.
 
-Scroll down to *Environment variables*: let's create two env vars:
+Scroll down to *Environment variables*: let's create one environment variable:
 
 For `Name` type in `REPOSITORY_URI`, for `Value` type in your ECR URI, which looks like this:
     
