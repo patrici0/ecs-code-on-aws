@@ -123,9 +123,6 @@ Paste the following code in the new file:
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      docker: 18
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -193,11 +190,11 @@ Under the **Source** Section
 
 Under the **Environment** Section
 
-*Operating system*: `Ubuntu`
+*Operating system*: `Amazon Linux 2`
 
 *Runtime*: `Standard`
 
-*Image*: `aws/codebuild/standard:2.0`
+*Image*: `aws/codebuild/amazonlinux2-x86_64:3.0`
 
 *Privileged*: Check the box for `Enable this flag if you want to build Docker images or want your builds to get elevated privileges`
 
