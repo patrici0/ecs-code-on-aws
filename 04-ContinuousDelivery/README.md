@@ -210,10 +210,6 @@ For `Name` type in `REPOSITORY_URI`, for `Value` type in your ECR URI, which loo
     
     XXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/containers-workshop-app
 
-Then click on the **Add environment variable** button to populate another variable.
-
-For `Name` type in `AWS_DEFAULT_REGION`, for `Value` type in the region code where your ECR repository resides (e.g. `us-east-1` for N. Virginia, `us-east-2` for Ohio...).
-
 Scroll down to the bottom of the page and click on **Create build project**. Your build project will be listed after that:
 
 ![CodeBuild list project](/04-ContinuousDelivery/images/codebuild_list_project.png)
