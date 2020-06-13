@@ -9,7 +9,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # CodePipeline related functions
-def ComesFromCodePipeline(event):
+def comesFromCodePipeline(event):
     if 'CodePipeline.job' in event:
         return True
     else:
@@ -47,7 +47,7 @@ def lambda_handler(event, context):
 
     # Parameters validation
     # Check input comes from CodePipeline
-    fromCodePipeline = ComesFromCodePipeline(event)
+    fromCodePipeline = comesFromCodePipeline(event)
     if fromCodePipeline:
         UserParameters = event['CodePipeline.job']['data']['actionConfiguration']['configuration']['UserParameters']
         parameters = {
