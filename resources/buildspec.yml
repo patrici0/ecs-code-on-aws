@@ -12,7 +12,9 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - cd 00-Application
+      - |
+        if [ ! -f ./Dockerfile ]; then cd 00-Application; fi
+      - |
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
