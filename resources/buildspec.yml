@@ -25,7 +25,9 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - cd
+      - |
+        if $(pwd | grep 00-Application); then cd ..; fi
+      - |
       - echo $(pwd)
       - printf '[{"name":"ecs-code-wks-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
