@@ -53,7 +53,7 @@ def lambda_handler(event, context):
         parameters = {
             'ecs_cluster': UserParameters.split()[0],
             'ecs_service': UserParameters.split()[1],
-            'ecs_service_desired_count': UserParameters.split()[2]
+            'ecs_service_desired_count': int(UserParameters.split()[2])
         }
     else:
         parameters = event['parameters']
@@ -84,7 +84,7 @@ def lambda_handler(event, context):
         logger.error("ERROR: Unexpected error: Could not find parameters['ecs_service_desired_count']")
         sys.exit()
     else:
-        ecs_service_desired_count = int(parameters['ecs_service_desired_count'])
+        ecs_service_desired_count = parameters['ecs_service_desired_count']
         logger.info(ecs_service_desired_count)
     
     # Set up ECS Client
