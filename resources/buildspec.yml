@@ -10,6 +10,7 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
+      - echo $(pwd)
       - echo Build started on `date`
       - echo Building the Docker image...
       - |
@@ -24,6 +25,8 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
+      - cd
+      - echo $(pwd)
       - printf '[{"name":"ecs-code-wks-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-    files: 00-Application/imagedefinitions.json
+    files: imagedefinitions.json
