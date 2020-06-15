@@ -10,7 +10,6 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
-      - echo $(pwd)
       - echo Build started on `date`
       - echo Building the Docker image...
       - |
