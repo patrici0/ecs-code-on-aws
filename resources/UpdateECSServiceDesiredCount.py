@@ -50,11 +50,15 @@ def lambda_handler(event, context):
     fromCodePipeline = comesFromCodePipeline(event)
     if fromCodePipeline:
         UserParameters = event['CodePipeline.job']['data']['actionConfiguration']['configuration']['UserParameters']
-        parameters = {
-            'ecs_cluster': UserParameters.split()[0],
-            'ecs_service': UserParameters.split()[1],
-            'ecs_service_desired_count': int(UserParameters.split()[2])
-        }
+        if len(UserParameters.split()) != 3:
+            logger.error("ERROR: Number of parameters is not 3")
+            sys.exit()
+        else:
+            parameters = {
+                'ecs_cluster': UserParameters.split()[0],
+                'ecs_service': UserParameters.split()[1],
+                'ecs_service_desired_count': int(UserParameters.split()[2])
+            }
     else:
         parameters = event['parameters']
 
