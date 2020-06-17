@@ -14,7 +14,6 @@ phases:
       - echo Building the Docker image...
       - |
         if [ ! -f ./Dockerfile ]; then cd 00-Application; fi
-      - |
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
@@ -24,6 +23,8 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
+      - |
+        if $(pwd | grep 00-Application > /dev/null); then cd ..; fi
       - printf '[{"name":"ecs-code-wks-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-    files: 00-Application/imagedefinitions.json
+    files: imagedefinitions.json
