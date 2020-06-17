@@ -9,32 +9,33 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # CodePipeline related functions
-def comesFromCodePipeline(event):
+def comes_from_code_pipeline(event):
     if 'CodePipeline.job' in event:
         return True
     else:
         return False
 
-def putJobSuccessResult(jobid):
+def put_job_success_result(job_id):
     client = boto3.client('codepipeline')
     response = client.put_job_success_result(
-        jobId=jobid,
+        jobId=job_id,
         executionDetails={
             'summary': 'Lambda execution succeded'
         }
     )
     return response
 
-def putJobFailureResult(jobid):
+def put_job_failure_result(job_id):
     client = boto3.client('codepipeline')
     response = client.put_job_failure_result(
-        jobId=jobid,
+        jobId=job_id,
         failureDetails={
             'type': 'JobFailed',
             'message': 'Lambda execution failed - review Cloudwatch logs'
         }
     )
     return response
+
 
 # handler is like the void main() in Java
 # We hate java, java kills people, don't do java
@@ -44,11 +45,10 @@ def lambda_handler(event, context):
     logger.info('got event: {}'.format(event))
     logger.info('got context: {}'.format(context))
 
-
     # Parameters validation
     # Check input comes from CodePipeline
-    fromCodePipeline = comesFromCodePipeline(event)
-    if fromCodePipeline:
+    from_code_pipeline = comes_from_code_pipeline(event)
+    if from_code_pipeline:
         UserParameters = event['CodePipeline.job']['data']['actionConfiguration']['configuration']['UserParameters']
         if len(UserParameters.split()) != 3:
             logger.error("ERROR: Number of parameters is not 3")
@@ -102,16 +102,16 @@ def lambda_handler(event, context):
     logger.info('ecs.update_service got: {}'.format(response))
 
     if response['service']['desiredCount'] == ecs_service_desired_count and response['ResponseMetadata']['HTTPStatusCode'] == 200:
-        if fromCodePipeline:
-            jobid = event['CodePipeline.job']['id']
-            updateJob = putJobSuccessResult(jobid)
-            logger.info('putJobSuccessResult got: {}'.format(updateJob))
+        if from_code_pipeline:
+            job_id = event['CodePipeline.job']['id']
+            update_job_response = put_job_success_result(job_id)
+            logger.info('put_job_success_result got: {}'.format(update_job_response))
         logger.info('ECS Service desired count is {} AND HTTPStatusCode is 200: SUCCESS'.format(ecs_service_desired_count))
     else:
-        if fromCodePipeline:
-            jobid = event['CodePipeline.job']['id']
-            updateJob = putJobFailureResult(jobid)
-            logger.info('putJobFailureResult got: {}'.format(updateJob))
+        if from_code_pipeline:
+            job_id = event['CodePipeline.job']['id']
+            update_job_response = put_job_failure_result(job_id)
+            logger.info('put_job_failure_result got: {}'.format(update_job_response))
         logger.error('ECS Service desired count is not {} OR HTTPStatusCode is not 200: FAIL'.format(ecs_service_desired_count))
         
     return json.dumps(response, indent=4, sort_keys=True, default=str)
