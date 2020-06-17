@@ -104,14 +104,14 @@ def lambda_handler(event, context):
     if response['service']['desiredCount'] == ecs_service_desired_count and response['ResponseMetadata']['HTTPStatusCode'] == 200:
         if from_code_pipeline:
             job_id = event['CodePipeline.job']['id']
-            updateJob = put_job_success_result(job_id)
-            logger.info('put_job_success_result got: {}'.format(updateJob))
+            update_job_response = put_job_success_result(job_id)
+            logger.info('put_job_success_result got: {}'.format(update_job_response))
         logger.info('ECS Service desired count is {} AND HTTPStatusCode is 200: SUCCESS'.format(ecs_service_desired_count))
     else:
         if from_code_pipeline:
             job_id = event['CodePipeline.job']['id']
-            updateJob = put_job_failure_result(job_id)
-            logger.info('put_job_failure_result got: {}'.format(updateJob))
+            update_job_response = put_job_failure_result(job_id)
+            logger.info('put_job_failure_result got: {}'.format(update_job_response))
         logger.error('ECS Service desired count is not {} OR HTTPStatusCode is not 200: FAIL'.format(ecs_service_desired_count))
         
     return json.dumps(response, indent=4, sort_keys=True, default=str)
