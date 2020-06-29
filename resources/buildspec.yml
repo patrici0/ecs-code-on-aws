@@ -26,5 +26,13 @@ phases:
       - |
         if $(pwd | grep 00-Application > /dev/null); then cd ..; fi
       - printf '[{"name":"ecs-code-wks-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - |
+        if [ -f resources/ecs-code-app-stack.yml ]; then
+          cp resources/ecs-code-app-stack.yml .
+          printf '{"Parameters": {"EnvName":"%s","ContainerImage":"%s","DesiredTaskCount":%s }}' $ENVIRONMENT_NAME $REPOSITORY_URI:$IMAGE_TAG $DESIRED_TASK_COUNT > ecs-code-app-stack.config
+        fi
 artifacts:
-    files: imagedefinitions.json
+    files:
+      - imagedefinitions.json
+      - ecs-code-app-stack.yml
+      - ecs-code-app-stack.config
