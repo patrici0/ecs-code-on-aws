@@ -29,7 +29,7 @@ phases:
       - |
         if [ -f resources/ecs-code-app-stack.yml ]; then
           cp resources/ecs-code-app-stack.yml .
-          printf '{"Parameters": {"EnvName":"%s","ContainerImage":"%s","DesiredTaskCount":%s }}' $ENVIRONMENT_NAME $REPOSITORY_URI:$IMAGE_TAG $DESIRED_TASK_COUNT > ecs-code-app-stack.config
+          printf '{"Parameters": {"EnvName":"%s","ContainerImage":"%s","DesiredTaskCount":%s }}' $IMAGE_TAG $REPOSITORY_URI:latest $DESIRED_TASK_COUNT > ecs-code-app-stack.config
         fi
 artifacts:
     files:
