@@ -18,7 +18,7 @@ Resources:
     NetworkStack:
         Type: AWS::CloudFormation::Stack
         Properties:
-            TemplateURL: https://ecs-code-on-aws.s3.amazonaws.com/cfn/ecs-code-network-stack.yaml
+            TemplateURL: https://ecs-code-on-aws.s3.amazonaws.com/ecs-code-network-stack.yml
             Parameters:
                 EnvironmentName: !Ref EnvName
                 #VpcCIDR: 10.192.0.0/16
