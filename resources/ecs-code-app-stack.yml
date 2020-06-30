@@ -62,7 +62,8 @@ Resources:
             HealthCheckPath: /
             HealthCheckProtocol: HTTP
             HealthCheckTimeoutSeconds: 5
-            Name: !Join ['-', [!Ref EnvName, !Ref 'AWS::StackName', 'drop-1']]
+            #Name: !Join ['-', [!Ref EnvName, !Ref 'AWS::StackName', 'drop-1']]
+            Name: !Sub ${EnvName}-ecs-code-drop1
             Port: 80
             Protocol: HTTP
             VpcId: !GetAtt NetworkStack.Outputs.VPC
