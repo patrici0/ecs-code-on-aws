@@ -32,4 +32,3 @@ artifacts:
     files:
       - imagedefinitions.json
       - ecs-code-app-stack.yml
-      - ecs-code-app-stack.config
