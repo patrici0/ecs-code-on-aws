@@ -1,5 +1,7 @@
 ![workshop logo](https://github.com/patrici0/ecs-code-on-aws/blob/master/images/containers-on-aws-worshop-logo.jpg)
 
+**This workshop is currently not working. It will be updated shortly**
+
 # Welcome to the "Serverless containers and continuous delivery workshop on AWS"
 
 Hello and welcome to the serverless containers and continuous delivery workshop on AWS! Please, read the instructions below carefully.
