@@ -1,4 +1,4 @@
-FROM node:14.19.1-alpine
+FROM node:11-alpine
 COPY app/ /app
 WORKDIR /app
 RUN npm install --global gulp && npm install gulp
