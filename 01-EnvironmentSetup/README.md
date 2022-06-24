@@ -16,17 +16,20 @@ This section describes the hardware and software needed for this workshop, and h
 
 ## 1. First Notes
 
-This workshop can be executed both on a Cloud9 environment or in your own computer. Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. This environment already comes with Git, Docker, AWS CLI and all the necessary tools that you'll need to run this lab.
+This workshop can be executed both on a Cloud9 environment or on your own computer. Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. This environment already comes with Git, Docker, AWS CLI and all the necessary tools that you'll need to run this lab.
 
 ## 2. The VPC Structure
 
 For this workshop, we are going to use a VPC with public and private subnets. All Fargate tasks should run on private subnets. All Load Balancers should run on public subnets.
 
 > NOTE: If you are running this workshop for a large group of people, you can optionally create just one VPC for the entire workshop, instead of one VPC per workshop participant. This is just to prevent you hitting some VPC limits for your AWS account, like number of VPCs per region and number of Elastic IPs per region.
+The following image is an example of a VPC with a public and a private subnet. You don't need to set it up that way as the CloudFormation template takes care of that for you.
 
 ![VPC structure](/01-EnvironmentSetup/images/containers-on-aws-workshop-vpc.png)
 
 ## 3. Infrastructure Setup (with Cloud9)
+
+> NOTE: This section is currently not working as the S3 bucket where the templates are stored is no longer public. You can still create the stack on your own. Download the template file "containers-workshop-with-cloud9.yaml" in the resources folder. Then, all you need to do is create a CloudFormation Stack from the AWS Console, uploading it as a template file. 
 
 In order to deploy the infrastructure to your account, you can use one of the following links according to the region you want to use. These are the regions that currently support Fargate and Cloud9.
 
