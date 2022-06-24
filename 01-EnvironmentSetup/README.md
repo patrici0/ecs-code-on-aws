@@ -29,9 +29,9 @@ The following image is an example of a VPC with a public and a private subnet. Y
 
 ## 3. Infrastructure Setup (with Cloud9)
 
-In order to deploy the infrastructure to your account, you can use one of the following links according to the region you want to use. These are the regions that currently support Fargate and Cloud9.
-
 > NOTE: This section is currently not working as the S3 bucket where the templates are stored is no longer public. You can still create the stack on your own. Download the template file "containers-workshop-with-cloud9.yaml" in the resources folder. Then, all you need to do is create a CloudFormation Stack from the AWS Console, uploading it as a template file. 
+
+In order to deploy the infrastructure to your account, you can use one of the following links according to the region you want to use. These are the regions that currently support Fargate and Cloud9.
 
 |Deploy | Region |
 |:---:|:---:|
