@@ -1,7 +1,8 @@
 ![workshop logo](https://github.com/patrici0/ecs-code-on-aws/blob/master/images/containers-on-aws-worshop-logo.jpg)
 
-**This workshop is currently not working as the s3 bucket where the Cloudformation template is stored is no longer public.**
-**It will be updated it at some point... Meanwhile, you can find the template to deploy the VPC and the Cloud9 environment under the "Resources" directory. The file name is "containers-workshop-with-cloud9.yaml"**
+**The automated launch of the CloudFormation stack in item 3 of the 'Environment Setup' section of this workshop is currently not working as the s3 bucket where the CloudFormation template is stored is no longer public.**
+**It will be updated at some point... Meanwhile, you can find the template to deploy the VPC and the Cloud9 environment under the "Resources" directory. The file name is "containers-workshop-with-cloud9.yaml".**
+**All you need to do is download the file and and then create a CloudFormation Stack uploading it as a template file.** 
 
 # Welcome to the "Serverless containers and continuous delivery workshop on AWS"
 
