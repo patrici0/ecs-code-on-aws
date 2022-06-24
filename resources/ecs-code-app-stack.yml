@@ -1,0 +1,233 @@
+Description:
+    This template creates the resources necessary to deploy a docker application
+
+Parameters:
+    EnvName:
+        Description: This name will be prefixed to resource names and will make easier for you to know what are your resources.
+        Type: String
+        AllowedPattern : ".+"
+    ContainerImage:
+        Description: This is the URI for the container image. e.g. XXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/ecr-repo:latest
+        Type: String
+        AllowedPattern: ".+"
+    DesiredTaskCount:
+        Description: This is the desired number of Fargate Tasks to run
+        Type: Number
+
+Resources:
+    NetworkStack:
+        Type: AWS::CloudFormation::Stack
+        Properties:
+            TemplateURL: https://ecs-code-on-aws.s3.amazonaws.com/ecs-code-network-stack.yml
+            Parameters:
+                EnvironmentName: !Ref EnvName
+                #VpcCIDR: 10.192.0.0/16
+                #PublicSubnet1CIDR: 10.192.10.0/24
+                #PublicSubnet2CIDR: 10.192.11.0/24
+
+    #ECS Resources
+
+    #ELB Resources
+    SGELB:
+        Type: AWS::EC2::SecurityGroup
+        Properties:
+            GroupName: !Sub ${EnvName}-ecs-code-sgelb
+            GroupDescription: Access from the internet
+            VpcId: !GetAtt NetworkStack.Outputs.VPC
+            SecurityGroupIngress:
+                - Description: Ingress from the internet
+                  IpProtocol: tcp
+                  FromPort: 80
+                  ToPort: 80
+                  CidrIp: 0.0.0.0/0
+    
+    ELB:
+        Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+        Properties:
+            Scheme: internet-facing
+            LoadBalancerAttributes:
+                - Key: idle_timeout.timeout_seconds
+                  Value: '30'
+            Name: !Sub ${EnvName}-ecs-code-elb
+            Subnets:
+                - !GetAtt NetworkStack.Outputs.Subnet1
+                - !GetAtt NetworkStack.Outputs.Subnet2
+            SecurityGroups:
+                - !Ref SGELB
+    ELBDummyTarget:
+        Type: AWS::ElasticLoadBalancingV2::TargetGroup
+        DependsOn: ELB
+        Properties:
+            HealthCheckIntervalSeconds: 6
+            HealthCheckPath: /
+            HealthCheckProtocol: HTTP
+            HealthCheckTimeoutSeconds: 5
+            #Name: !Join ['-', [!Ref EnvName, !Ref 'AWS::StackName', 'drop-1']]
+            Name: !Sub ${EnvName}-ecs-code-drop1
+            Port: 80
+            Protocol: HTTP
+            VpcId: !GetAtt NetworkStack.Outputs.VPC
+    ELBListener:
+        Type: AWS::ElasticLoadBalancingV2::Listener
+        Properties:
+            DefaultActions:
+                - TargetGroupArn: !Ref ELBDummyTarget
+                  Type: 'forward'
+            LoadBalancerArn: !Ref ELB
+            Port: 80
+            Protocol: HTTP
+
+    #ECS IAM Roles
+    ECSTaskRole:
+        Type: AWS::IAM::Role
+        Properties:
+            AssumeRolePolicyDocument:
+                Statement:
+                    - Effect: Allow
+                      Principal:
+                        Service: [ecs.amazonaws.com, ecs-tasks.amazonaws.com]
+                      Action: ['sts:AssumeRole']
+            Path: /
+            Policies:
+                - PolicyName: !Sub ${EnvName}-ecs-code-ecspolicy
+                  PolicyDocument:
+                    Statement:
+                        - Effect: Allow
+                          Action:
+                            - 'ec2:AttachNetworkInterface'
+                            - 'ec2:CreateNetworkInterface'
+                            - 'ec2:CreateNetworkInterfacePermission'
+                            - 'ec2:DeleteNetworkInterface'
+                            - 'ec2:DeleteNetworkInterfacePermission'
+                            - 'ec2:Describe*'
+                            - 'ec2:DetachNetworkInterface'
+                            - 'elasticloadbalancing:DeregisterInstancesFromLoadBalancer'
+                            - 'elasticloadbalancing:DeregisterTargets'
+                            - 'elasticloadbalancing:Describe*'
+                            - 'elasticloadbalancing:RegisterInstancesWithLoadBalancer'
+                            - 'elasticloadbalancing:RegisterTargets'
+                          Resource: '*'
+            RoleName: !Sub ${EnvName}-ecs-code-ecsrole
+
+    ECSTaskExecutionRole:
+        Type: AWS::IAM::Role
+        Properties:
+            AssumeRolePolicyDocument:
+                Statement:
+                    - Effect: Allow
+                      Principal:
+                        Service: [ecs-tasks.amazonaws.com]
+                      Action: ['sts:AssumeRole']
+            Path: /
+            Policies:
+                - PolicyName: !Sub ${EnvName}-ecs-code-ecsexecpolicy
+                  PolicyDocument:
+                    Statement:
+                        - Effect: Allow
+                          Action:
+                            - 'ecr:GetAuthorizationToken'
+                            - 'ecr:BatchCheckLayerAvailability'
+                            - 'ecr:GetDownloadUrlForLayer'
+                            - 'ecr:BatchGetImage'
+                            - 'logs:CreateLogStream'
+                            - 'logs:PutLogEvents'
+                          Resource: '*'
+            RoleName: !Sub ${EnvName}-ecs-code-ecsexecrole
+
+    #ECS Cluster
+    ECSCluster:
+        Type: AWS::ECS::Cluster
+        Properties:
+            ClusterName: !Sub ${EnvName}-ecs-code-cluster
+    
+    #ECS Task definition
+    ECSTaskDefinition:
+        Type: AWS::ECS::TaskDefinition
+        Properties:
+            ContainerDefinitions:
+                #- Image: !Sub XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/${EnvName}-ecs-code-ecr:latest
+                - Image: !Ref ContainerImage
+                  Name: !Sub ${EnvName}-ecs-code-app
+                  PortMappings: 
+                    - ContainerPort: 80
+                      Protocol: tcp
+            Cpu: "256"
+            Memory: "512"
+            NetworkMode: awsvpc
+            Family: !Sub ${EnvName}-ecs-code-taskdef
+            ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
+            TaskRoleArn: !GetAtt ECSTaskRole.Arn
+
+    #ECS Service and Fargate Resources
+    SGFargate:
+        Type: AWS::EC2::SecurityGroup
+        Properties:
+            GroupName: !Sub ${EnvName}-ecs-code-sgfargate
+            GroupDescription: Access to the Fargate containers
+            VpcId: !GetAtt NetworkStack.Outputs.VPC
+            SecurityGroupIngress:
+                - Description: Ingress from the public ALB
+                  IpProtocol: tcp
+                  FromPort: 80
+                  ToPort: 80
+                  SourceSecurityGroupId: !Ref SGELB
+
+    ECSTargetGroup:
+        Type: AWS::ElasticLoadBalancingV2::TargetGroup
+        DependsOn: ELB
+        Properties:
+            HealthCheckIntervalSeconds: 6
+            HealthCheckPath: /
+            HealthCheckProtocol: HTTP
+            HealthCheckTimeoutSeconds: 5
+            Name: !Sub ${EnvName}-ecs-code-targetgroup
+            Port: 80
+            Protocol: HTTP
+            TargetType: ip
+            VpcId: !GetAtt NetworkStack.Outputs.VPC
+    ECSListenerRule:
+        Type: AWS::ElasticLoadBalancingV2::ListenerRule
+        Properties:
+            Actions:
+                - TargetGroupArn: !Ref ECSTargetGroup
+                  Type: forward
+            Conditions:
+                - Field: path-pattern
+                  Values:
+                    - /*
+            ListenerArn: !Ref ELBListener
+            Priority: 1
+
+    ECSService:
+        Type: AWS::ECS::Service
+        DependsOn: ECSListenerRule
+        Properties:
+            Cluster: !Ref ECSCluster
+            DesiredCount: !Ref DesiredTaskCount
+            LaunchType: FARGATE
+            LoadBalancers:
+                - ContainerName: !Sub ${EnvName}-ecs-code-app
+                  ContainerPort: 80
+                  TargetGroupArn: !Ref ECSTargetGroup
+            NetworkConfiguration:
+                AwsvpcConfiguration:
+                    AssignPublicIp: ENABLED
+                    SecurityGroups:
+                        - !Ref SGFargate
+                    Subnets:
+                        - !GetAtt NetworkStack.Outputs.Subnet1
+                        - !GetAtt NetworkStack.Outputs.Subnet2
+            TaskDefinition: !Ref ECSTaskDefinition
+            ServiceName: !Sub ${EnvName}-ecs-code-service
+
+Outputs:
+    VPCFromNestedStack:
+        Value: !GetAtt NetworkStack.Outputs.VPC
+    Subnet1FromNestedStack:
+        Value: !GetAtt NetworkStack.Outputs.Subnet1
+    Subnet2FromNestedStack:
+        Value: !GetAtt NetworkStack.Outputs.Subnet2
+    ECSCluster:
+        Value: !Ref ECSCluster
+    LoadBalancerDNS:
+        Value: !GetAtt ELB.DNSName
