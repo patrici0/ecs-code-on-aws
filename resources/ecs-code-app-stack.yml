@@ -106,6 +106,10 @@ Resources:
                             - 'elasticloadbalancing:Describe*'
                             - 'elasticloadbalancing:RegisterInstancesWithLoadBalancer'
                             - 'elasticloadbalancing:RegisterTargets'
+                            - 'ssmmessages:CreateControlChannel'
+                            - 'ssmmessages:CreateDataChannel'
+                            - 'ssmmessages:OpenControlChannel'
+                            - 'ssmmessages:OpenDataChannel'
                           Resource: '*'
             RoleName: !Sub ${EnvName}-ecs-code-ecsrole
 
@@ -131,14 +135,25 @@ Resources:
                             - 'ecr:BatchGetImage'
                             - 'logs:CreateLogStream'
                             - 'logs:PutLogEvents'
+                            - 'logs:DescribeLogStreams'
+                            - 'logs:DescribeLogGroups'
                           Resource: '*'
             RoleName: !Sub ${EnvName}-ecs-code-ecsexecrole
 
+    #Log group
+    LogGroup:
+        Type: AWS::Logs::LogGroup
+        Properties:
+            LogGroupName: !Sub /aws/ecs/${EnvName}-ecs-code-task
+    
     #ECS Cluster
     ECSCluster:
         Type: AWS::ECS::Cluster
         Properties:
             ClusterName: !Sub ${EnvName}-ecs-code-cluster
+            Configuration:
+                ExecuteCommandConfiguration:
+                    Logging: DEFAULT
     
     #ECS Task definition
     ECSTaskDefinition:
@@ -147,6 +162,12 @@ Resources:
             ContainerDefinitions:
                 #- Image: !Sub XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/${EnvName}-ecs-code-ecr:latest
                 - Image: !Ref ContainerImage
+                  LogConfiguration:
+                    LogDriver: awslogs
+                    Options:
+                        awslogs-group: !Ref LogGroup
+                        awslogs-region: !Ref "AWS::Region"
+                        awslogs-stream-prefix: !Ref EnvName
                   Name: !Sub ${EnvName}-ecs-code-app
                   PortMappings: 
                     - ContainerPort: 80
@@ -204,6 +225,7 @@ Resources:
         Properties:
             Cluster: !Ref ECSCluster
             DesiredCount: !Ref DesiredTaskCount
+            EnableExecuteCommand: true
             LaunchType: FARGATE
             LoadBalancers:
                 - ContainerName: !Sub ${EnvName}-ecs-code-app
